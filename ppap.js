@@ -313,6 +313,7 @@ n++;
   
 
 });
+	n=(n==0)?0;n-1;
 $('#hono').append(vl);
 
 let i="click-this";
