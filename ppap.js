@@ -266,11 +266,14 @@ $('#search').on('input',function(){
     let vl="";
 res_url.forEach(e=>{
 
-    let x=0;
+    let it=1;
+let x=0;
     console.log(e);
     let vbf=0;
 while(vbf==0){
+
     let i="click-this";
+let vn=0;
     let vx="";
     switch(_select[x]){
         case '0':vx="とてもいい";break;
@@ -286,7 +289,7 @@ while(vbf==0){
     }
 
     else{
-        let it=x+1;
+     
         if(_url[x]=="chrome://extensions/"){
         vl+=`<br>
         <div id="${i+it}" data-url="${_url[x]}" >
@@ -294,6 +297,7 @@ while(vbf==0){
         ${_title[x]}
           </a></div>`;
           vbf++;
+ it++;
     }
     else{
         vl+=`<br>
@@ -302,9 +306,10 @@ while(vbf==0){
         ${_title[x]}
           </a></div>`;
           vbf++;
+ it++;
     }
     }
-    x++;
+   x++;
 
 }
 n++;
@@ -313,11 +318,11 @@ n++;
   
 
 });
-	n=(n==0)?0;n-1;
+
 $('#hono').append(vl);
 
 let i="click-this";
-
+	
         let set=document.getElementById("click-this"+n.toString());
         console.log(set);
         console.log(n);
