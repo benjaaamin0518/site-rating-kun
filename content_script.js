@@ -7,7 +7,26 @@ let r_length;
 // alert(`updated:`);
 
 chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
-    if (msg.val) {
+    if(msg.val=="copy"){ 
+        if(msg.item=="clip-today"||msg.item=="clip-all"){
+        navigator.clipboard.writeText(msg.copy).then(
+            ()=>alert("クリップボードにコピーしました"), // 成功
+            ()=>alert("クリップボードにコピーできませんでした") // 失敗
+        
+        );
+        }
+        else if(msg.item=="tweet-today"||msg.item=="tweet-all"){      
+              var left = Math.round(window.screen.width / 2 - 275);
+        var top = (window.screen.height > 420) ? Math.round(window.screen.height / 2 - 210) : 0;
+        window.open(
+            "https://twitter.com/intent/tweet?text=" + encodeURIComponent(msg.copy),
+            null,
+            "scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=550,height=420,left=" + left + ",top=" + top);
+        }
+        }
+    else if (msg.val) {
+
+        // alert();
         let vx="";
         switch(msg.val){
             case '0':vx="とてもいい";break;
@@ -29,7 +48,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             `
                             ); 
     
-
+                            
     } else {
         sendResponse('Color message is none.');
     }

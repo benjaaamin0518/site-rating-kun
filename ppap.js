@@ -10,12 +10,12 @@ $( async function(){
     let title;
     let _title;
 let flg=0;
-        //日付オブジェクトを作成する
-var dd = new Date();
+//日付オブジェクトを作成する
+let dd = new Date();
 //「年」を取得する
-var YYYY = dd.getFullYear();
+let YYYY = dd.getFullYear();
 //「月」を取得する
-var MM = dd.getMonth()+1;
+let MM = dd.getMonth()+1;
 //「日」を取得する
     let _select;
 
@@ -70,7 +70,7 @@ var MM = dd.getMonth()+1;
         //  alert(uuu);
 
          _url2 = url;
-         var DD = dd.getDate();
+         let DD = dd.getDate();
          if (bool == -1) {
              if (url == "chrome://extensions/") {
                  $('#holi').append(` <br>
