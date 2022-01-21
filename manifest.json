@@ -22,7 +22,7 @@
   ],
   "background": {
     "scripts": [
-      "event.js"
+      "jquery.js","event.js"
     ],
     "persistent": false
   }
