@@ -6,7 +6,34 @@ let r_length;
 
 // alert(`updated:`);
 
+chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+    if (msg.val) {
+        let vx="";
+        switch(msg.val){
+            case '0':vx="とてもいい";break;
+            case '1':vx="いい";break;
+            case '2':vx="わっるい";break;
+            case '3':vx="とてもわっるい";break;
+        }
+        if(document.getElementsByClassName('box23')){
+            $('.box23').remove();
+        }                if(document.getElementsByClassName('box22')){
+            $('.box22').remove();
+        }
+        $('body').prepend(
+            `<center><div class="box22">
+            <p>このサイトの評価は<b>${vx}</b>です</p>
+            
+            </div></center>
+            
+            `
+                            ); 
+    
 
+    } else {
+        sendResponse('Color message is none.');
+    }
+});
 // content_script.js
 async function useURLFunc() {
     let sendMsgFunc = () => {

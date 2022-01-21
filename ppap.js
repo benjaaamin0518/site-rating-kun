@@ -167,8 +167,15 @@ else{
 }
 $("#message").hide();
 $("#success_message").show();
-$("#success_message").fadeOut("slow");
-
+$("#success_message").fadeOut(4000);
+chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, {
+        val:foo_val
+    },
+    function(msg) {
+//              console.log("result message:", msg);
+    });
+});
 
 }
 $('#search').on('input',function(){
@@ -341,7 +348,8 @@ let i="click-this";
             });
         }
         
-    
+      
+
     
         }});
 var set_interval_id2;
