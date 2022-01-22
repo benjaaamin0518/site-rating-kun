@@ -68,13 +68,35 @@
       </button>
       <div class="ui message">
         <div class="header">
+         CSVインポート・エクスポート
+          </div>
+          <div class="ui middle aligned center aligned grid container"  style="margin-top:15px;">
+            <!-- <div class="ui fluid segment"> -->
+              <div class="ui buttons">
+<!--           
+            <label for="embedpollfileinput" class="ui button compact" style="position:relative;">
+           Inport
+            </label>
+            <button class="ui button compact" id="">
+              Export
+            </button> -->
+            <input type="file"  class="inputfile"style="display:none" id="embedpollfileinput" />
+
+              <label for="embedpollfileinput" class="ui primary button ">Inport</label>
+              <div class="or"></div>
+              <button class="ui button compact" id="csvdwn">Export</button>
+            </div>
+            </div>
+            
+          <!-- </div> --><br>
+                  <div class="header" style="margin-top:10px;">
         他のサイトでの評価
         </div>
         <ul class="list">
           <li>表示がおかしい場合は再度ページの読み込みを行ってください。</li>
           <li>評価は実際のサイトに訪れないと変更できません</li>
         </ul>
-      </div>
+        </div>
       <div class="ui search">
         <input class="prompt" id="search" type="text" placeholder="例:いい/キーワード" style="width:100%">
         <div class="results"></div>

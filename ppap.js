@@ -1,4 +1,4 @@
-$( async function(){
+$(  function(){
 
     let _date;
     let _url;
@@ -468,5 +468,72 @@ function findTargetElement2(){
         }
     }   
 
+    
+    $("#csvdwn").on('click',async function(){
+        let str="";
+        let q=0;
+         _url.forEach(async ele=>{
+            // let vx= new Promise((resolve,reject)=>{
+            //     let vx="";
+            
+           
+                 switch(_select[q]){
+                    case '0':str+= `'とてもいい',${`'${_title[q].toString()}'`},'${ele}','${_date[q]}'\n`;break;
+                    case '1':str+= `'いい',${_title[q]},${ele},${_date[q]}\n`;break;
+                    case '2':str+= `'わっるい',${_title[q]},${ele},${_date[q]}\n`;break;
+                    case '3':str+= `'とてもわっるい',${_title[q]},${ele},${_date[q]}\n`;break;
+                }
+
+            q++;
+        });
+        var link = document.createElement('a');
+        var bom = new Uint8Array([0xEF, 0xBB, 0xBF]);
+        var blob;
+        blob = new Blob([bom, str], {type: 'text/csv'});
+        link.setAttribute('download', "Export.csv");
+        link.setAttribute('href', window.webkitURL.createObjectURL(blob));
+        link.click();
+        });
+        let fileInput = document.getElementById('embedpollfileinput');
+        let fileReader = new FileReader();
+//CSVファイルを読み込む関数getCSV()の定義
+$("#embedpollfileinput").on('change',function(){
+    // alert($("#embedpollfileinput").val());
+    let file = fileInput.files[0];
+    fileReader.readAsText(file);
+    });
+
+fileReader.onload = () =>{
+
+    let str=fileReader.result.split(/\n|\r|\n\r/);
+
+  
+    let flg=0;
+    let v=[];
+  for(let row=0;str.length>=row;row++){
+      let co=str[row].split(`',`);
+    //   alert(str[row]);
+
+  
+  
+      v[row]=[];
+      for(let cl=0;co.length>=cl;cl++){
+if(co[cl]==""){
+    flg=1;
+}
+alert(co[cl]);
+v[row][cl]=[];
+v[row][cl]=co[cl];
+        cl++;
+}
+    
+    }
+if(flg){
+    alert(エラー);
+}
+else{
+    alert(v[0]);
+}
+}
 });
 
