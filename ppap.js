@@ -132,12 +132,23 @@ ${title}
   evo();
 
 document.getElementById("hora").onclick=function(){
+    //日付オブジェクトを作成する
+let dd = new Date();
+//「年」を取得する
+let YYYY = dd.getFullYear();
+//「月」を取得する
+let MM = dd.getMonth()+1;
+let DD = dd.getDate();
+let year=YYYY-3;
+let limit=new Date( year+ "/" + MM + "/" + DD);
+let date;
+
     $(".message").show();
 var foo_val = $("input[name='example1']:checked").val();
 if(foo_val!=null){
-    var DD = dd.getDate();
     if(flg){
         _select[bool]=foo_val;
+         date=new Date(_date[bool]);
 
         
     }else{
@@ -145,6 +156,8 @@ if(foo_val!=null){
         _date[_date.length]= YYYY + "/" + MM + "/" + DD;
         _url[_url.length]=_url2;
         _title[_title.length]=title;
+         date=new Date(YYYY + "/" + MM + "/" + DD);
+
         
     }
 console.log(_select);
@@ -168,9 +181,13 @@ else{
 $("#message").hide();
 $("#success_message").show();
 $("#success_message").fadeOut(4000);
+let date_flg=0;
+if(limit.getTime()>=date.getTime()){
+date_flg=1;
+}
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {
-        val:foo_val
+        val:foo_val,date:date_flg
     },
     function(msg) {
 //              console.log("result message:", msg);

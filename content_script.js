@@ -34,6 +34,10 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             case '2':vx="わっるい";break;
             case '3':vx="とてもわっるい";break;
         }
+        let year="";
+        if(msg.date>0){
+            year="<br><u>このサイトは評価をつけてから3年以上経過しており情報が古い可能性があります。</u>"
+        }
         if(document.getElementsByClassName('box23')){
             $('.box23').remove();
         }                if(document.getElementsByClassName('box22')){
@@ -41,7 +45,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
         }
         $('body').prepend(
             `<center><div class="box22">
-            <p>このサイトの評価は<b>${vx}</b>です</p>
+            <p>このサイトの評価は<b>${vx}</b>です${year}</p>
             
             </div></center>
             
@@ -117,9 +121,32 @@ chrome.storage.sync.get(['date'], function (value) {
                     case '2':vx="わっるい";break;
                     case '3':vx="とてもわっるい";break;
                 }
+                //日付オブジェクトを作成する
+                let dd = new Date();
+                //「年」を取得する
+                let YYYY = dd.getFullYear();
+                //「月」を取得する
+                let MM = dd.getMonth()+1;
+                let DD = dd.getDate();
+                let year=YYYY-3;
+                let limit=new Date( year+ "/" + MM + "/" + DD);
+                let date;
+                date=new Date(_date[bool]);
+                let date_flg=0;
+                if(limit.getTime()>=date.getTime()){
+                date_flg=1;
+                }
+                let _year="";
+                if(date_flg>0){
+                    _year="<br><u>このサイトは評価をつけてから3年以上経過しており情報が古い可能性があります。</u>"
+                }
+                // if(new Date("2021-1-25").getTime()>=limit.getTime()){
+                //     alert("3出来てる?");
+                // }
+        
                 $('body').prepend(
                     `<center><div class="box22">
-                    <p>このサイトの評価は<b>${vx}</b>です</p>
+                    <p>このサイトの評価は<b>${vx}</b>です${_year}</p>
                     
                     </div></center>
                     
@@ -217,6 +244,25 @@ chrome.storage.sync.get(['date'], function (value) {
                     case '2':vx="わっるい";break;
                     case '3':vx="とてもわっるい";break;
                 }
+                    //日付オブジェクトを作成する
+                    let dd = new Date();
+                    //「年」を取得する
+                    let YYYY = dd.getFullYear();
+                    //「月」を取得する
+                    let MM = dd.getMonth()+1;
+                    let DD = dd.getDate();
+                    let year=YYYY-3;
+                    let limit=new Date( year+ "/" + MM + "/" + DD);
+                    let date;
+                    date=new Date(_date[bool]);
+                    let date_flg=0;
+                    if(limit.getTime()>=date.getTime()){
+                    date_flg=1;
+                    }
+                    let _year="";
+                    if(date_flg>0){
+                        _year="<br><u>このサイトは評価をつけてから3年以上経過しており情報が古い可能性があります。</u>"
+                    }
                 if(document.getElementsByClassName('box23')){
                     $('.box23').remove();
                 }                if(document.getElementsByClassName('box22')){
@@ -224,7 +270,7 @@ chrome.storage.sync.get(['date'], function (value) {
                 }
                 $('body').prepend(
                     `<center><div class="box22">
-                    <p>このサイトの評価は<b>${vx}</b>です</p>
+                    <p>このサイトの評価は<b>${vx}</b>です${_year}</p>
                     
                     </div></center>
                     
