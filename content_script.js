@@ -4,7 +4,6 @@ let uuu;
 let _select;
 let r_length;
 
-// alert(`updated:`);
 
 chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
     if(msg.val=="copy"){ 
@@ -24,16 +23,35 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             "scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=550,height=420,left=" + left + ",top=" + top);
         }
         }
+      else if(msg.code){
+          alert();
+      }
     else if (msg.val) {
 
-        // alert();
         let vx="";
         switch(msg.val){
             case '0':vx="とてもいい";break;
             case '1':vx="いい";break;
             case '2':vx="わっるい";break;
             case '3':vx="とてもわっるい";break;
+            case 4:vx=4;break;
         }
+       
+        if(vx==4){
+            if(document.getElementsByClassName('box23')){
+                $('.box23').remove();
+            }                if(document.getElementsByClassName('box22')){
+                $('.box22').remove();
+            }
+    
+            $('body').prepend(
+                `<center><div class="box23">
+                <p>このサイトはまだ評価がありません</p>
+                </div></center>
+                `
+                                ); 
+        }
+        else{
         let year="";
         if(msg.date>0){
             year="<br><u>このサイトは評価をつけてから3年以上経過しており情報が古い可能性があります。</u>"
@@ -43,6 +61,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
         }                if(document.getElementsByClassName('box22')){
             $('.box22').remove();
         }
+
         $('body').prepend(
             `<center><div class="box22">
             <p>このサイトの評価は<b>${vx}</b>です${year}</p>
@@ -51,8 +70,9 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             
             `
                             ); 
+        
     
-                            
+        }                    
     } else {
         sendResponse('Color message is none.');
     }
@@ -107,9 +127,7 @@ chrome.storage.sync.get(['date'], function (value) {
                 $('body').prepend(
 `<center><div class="box23">
 <p>このサイトはまだ評価がありません</p>
-
 </div></center>
-
 `
                 );
             }
@@ -141,7 +159,7 @@ chrome.storage.sync.get(['date'], function (value) {
                     _year="<br><u>このサイトは評価をつけてから3年以上経過しており情報が古い可能性があります。</u>"
                 }
                 // if(new Date("2021-1-25").getTime()>=limit.getTime()){
-                //     alert("3出来てる?");
+                    // alert("3出来てる?");
                 // }
         
                 $('body').prepend(
@@ -230,9 +248,7 @@ chrome.storage.sync.get(['date'], function (value) {
                 $('body').prepend(
 `<center><div class="box23">
 <p>このサイトはまだ評価がありません</p>
-
 </div></center>
-
 `
                 );
             }
