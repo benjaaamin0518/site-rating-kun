@@ -670,8 +670,25 @@ var fetchAsText = (file) => {
         while (ela.firstChild) {
             ela.removeChild(ela.firstChild);
         }
-      
-        const url=uuu;
+
+            
+                
+            
+                    
+        var set_interval_id2;
+       
+
+var set_interval_id = setInterval(findTargetElement, 300);
+function findTargetElement(){
+
+
+let i="click-this0";
+    let set=document.getElementById("click-this0");
+    if(r_length){
+
+        clearInterval(set_interval_id);
+	    
+const url=uuu;
         bool = _url.indexOf(url);
        //  alert(uuu);
            //日付オブジェクトを作成する
@@ -754,19 +771,6 @@ ${title}
 
             }
         }
-
-        var set_interval_id2;
-       
-
-var set_interval_id = setInterval(findTargetElement, 300);
-function findTargetElement(){
-
-
-let i="click-this0";
-    let set=document.getElementById("click-this0");
-    if(r_length){
-
-        clearInterval(set_interval_id);
 
         let vl="";
         // if(flg==1){
