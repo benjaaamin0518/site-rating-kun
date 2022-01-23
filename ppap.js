@@ -620,7 +620,47 @@ var fetchAsText = (file) => {
         });
         chrome.storage.sync.set({'title':_title} , function () {
         });
-        
+        chrome.storage.sync.get(['date'], function (value) {
+
+        value=value.date||[];
+
+        console.log(value);
+
+        _date=value;
+
+      });
+
+      chrome.storage.sync.get(['select'], function (value) {
+
+        value=value.select||[];
+
+        console.log(value);
+
+        _select=value;
+
+       });
+
+           chrome.storage.sync.get(['url'], function (value) {
+
+        value=value.url||[];
+
+        console.log(value);
+
+        _url=value;
+
+        r_length=_url.length;
+
+       });
+
+       chrome.storage.sync.get(['title'], function (value) {
+
+        value=value.title||[];
+
+        console.log(value);
+
+        _title=value;
+
+       });
         ele = document.getElementById("holi");
         while (ele.firstChild) {
             ele.removeChild(ele.firstChild);
@@ -715,7 +755,7 @@ ${title}
         }
 
         var set_interval_id2;
-        r_length=_url.length;
+       
 
 var set_interval_id = setInterval(findTargetElement, 300);
 function findTargetElement(){
