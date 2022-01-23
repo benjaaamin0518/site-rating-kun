@@ -591,6 +591,7 @@ var fetchAsText = (file) => {
         }
         };
         if((in_date.length==in_url.length==in_title.length==in_select.length&&flg2==0&&delete2==0)||delete2==1){
+		r_length=null;
             $('#inpo').prop('disabled','true');
             $(".message").show();
             if(delete2==1){
