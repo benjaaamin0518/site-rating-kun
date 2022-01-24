@@ -205,6 +205,10 @@ chrome.storage.sync.set({'url':_url} , function () {
 chrome.storage.sync.set({'title':_title} , function () {
 });
 evo();
+
+
+
+
 }
 else{
     alert("正しく入力されていません");
@@ -216,6 +220,8 @@ let date_flg=0;
 if(limit.getTime()>=date.getTime()){
 date_flg=1;
 }
+set_interval_id2 =setInterval(findTargetElement2, 300);
+
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {
         val:foo_val,date:date_flg
@@ -223,6 +229,10 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     function(msg) {
 //              console.log("result message:", msg);
     });
+
+ 
+
+
 });
 
 }
@@ -544,11 +554,13 @@ var davi=0;
 let flg2;
 let ulength;
 let delete2=0;
-let xz=0;              
+let xz=0;  
+var foo_val;           
 
         // ファイルから内容をテキストとして取得する Promise を返す
 var fetchAsText = (file) => {
     return new Promise((resolve,reject) => {
+        delete2=0;
 
       var fr = new FileReader();
       fr.onload = (e) => {
@@ -646,7 +658,6 @@ var fetchAsText = (file) => {
 
             }
 
-
         console.log(in_select);
         console.log(in_date);
         console.log(in_url);
@@ -718,7 +729,7 @@ let year=YYYY-3;
 let limit=new Date( year+ "/" + MM + "/" + DD);
 let date;
 date=new Date(YYYY + "/" + MM + "/" + DD);
-var foo_val;
+
 
 
 
@@ -838,12 +849,13 @@ let i="click-this0";
     if(dpi==1&&JSON.stringify(_url) === JSON.stringify(in_url)){
 
         clearInterval(set_interval_id);
-
             let x=0;
-            // if(r_length==0){
-            //     dfg=1;
 
-            // }
+            if(r_length==0){
+
+                dfg=1;
+
+            }
         while(x<r_length){
 
             let i="click-this";
@@ -855,6 +867,7 @@ let i="click-this0";
                 case '3':vx="とてもわっるい";break;
             }
             if(bool==x&&flg==1){
+                dfg=1;
 
             }
             else{
@@ -908,18 +921,21 @@ var obj = document.getElementById("embedpollfileinput");
     if(limit.getTime()>=date.getTime()){
     date_flg=1;
     }
-    if(dfg==1&&n){
+    // alert();
+    if(dfg==1&&n>=0){
+        clearInterval(kakikupro);
+
         i="click-this";
 
         set=document.getElementById("click-this"+n.toString());
-           console.log(set);
+           console.log(r_length);
            console.log(n);
            if(set!=='undefined'||set!==null){
        
    
                for(let v=0;v<=n;v++){
                    let set=document.getElementById("click-this"+v.toString());
-                   alert(set.dataset.url);
+                //    alert(set.dataset.url);
 
                        // console.log("#click-this"+v);    console.log(bool);
                $("#click-this"+v).on("click", function () {
@@ -931,13 +947,12 @@ var obj = document.getElementById("embedpollfileinput");
    
            }
         }   
-        clearInterval(kakikupro);
-
 
     if (!alert('インポートが完了しました。')) {
 
 
         obj.value = "";
+
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {
                 val:foo_val,date:date_flg,inp:"inport"

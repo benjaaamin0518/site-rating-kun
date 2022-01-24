@@ -37,7 +37,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             case 4:vx=4;break;
         }
        
-        if(msg.inp){
+        if(vx==4){
             if(document.getElementsByClassName('box23')){
                 $('.box23').remove();
             }                if(document.getElementsByClassName('box22')){
@@ -52,6 +52,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
                                 ); 
         }
         else{
+
         let year="";
         if(msg.date>0){
             year="<br><u>このサイトは評価をつけてから3年以上経過しており情報が古い可能性があります。</u>"
