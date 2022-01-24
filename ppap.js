@@ -538,21 +538,35 @@ $("#embedpollfileinput").on('change',async function(e){
 
     
 });
-let delete2=0;
+var david ;
+var davi=0;
+let flg2;
 
+let delete2=0;
         // ファイルから内容をテキストとして取得する Promise を返す
 var fetchAsText = (file) => {
     return new Promise((resolve,reject) => {
+
       var fr = new FileReader();
       fr.onload = (e) => {
-
+        ele = document.getElementById("holi");
+        while (ele.firstChild) {
+            ele.removeChild(ele.firstChild);
+        }
+        let  ela = document.getElementById("hono");
+        while (ela.firstChild) {
+            ela.removeChild(ela.firstChild);
+        }
+        in_select=[];
+        in_url=[];
+        in_date=[];
+        in_title=[];
         // 読み込んだ結果を resolve する
         if(e.currentTarget.result=="\r\n"||e.currentTarget.result==""){
 
             delete2=1;
         }
         let par=e.currentTarget.result.split(/\n/);
-        let flg2;
         let dv=0;
 
         for(let c=0;par.length-2>=c;c++){
@@ -590,43 +604,57 @@ var fetchAsText = (file) => {
             dv++;
         }
         };
-        var obj = document.getElementById("embedpollfileinput");
+    };
+    davi=1;
+    // 読み込む
+    fr.readAsText(file);
+     david = setInterval(setter, 300);
 
+     resolve();  
+
+
+  });
+        function setter(){
+            if(davi==1){
+                clearInterval(david);
+
+    
         if(((in_date.length+in_url.length+in_title.length+in_select.length)%4==0&&flg2==0&&delete2==0)||delete2==1){
 		r_length=null;
             $('#inpo').prop('disabled','true');
             $(".message").show();
-            _select=[];
-            _date= [];
-            _url=[];
-            _title=[];
+            // _select=[];
+            // _date= [];
+            // _url=[];
+            // _title=[];
             if(delete2==1){
+                in_select=[];
+                in_date= [];
+                in_url=[];
+                in_title=[];
                 _select=[];
                 _date= [];
                 _url=[];
                 _title=[];
             }
             else{
-                _select=in_select;
-                _date= in_date;
-                _url=in_url;
-                _title=in_title;
+
             }
 
 
-        console.log(_select);
-        console.log(_date);
-        console.log(_url);
-        console.log(_title);
+        console.log(in_select);
+        console.log(in_date);
+        console.log(in_url);
+        console.log(in_title);
             let cv=0;
-        chrome.storage.sync.set({'select':_select} , function () {
+        chrome.storage.sync.set({'select':in_select} , function () {
         });
-        chrome.storage.sync.set({'date':_date} , function () {
+        chrome.storage.sync.set({'date':in_date} , function () {
         });
-      chrome.storage.sync.set({'url':_url} , async function () {
+      chrome.storage.sync.set({'url':in_url} , async function () {
           cv=1;
         });
-        chrome.storage.sync.set({'title':_title} , function () {
+        chrome.storage.sync.set({'title':in_title} , function () {
         });
 
        var set_interval_id2;
@@ -651,66 +679,66 @@ var foo_val;
 
 
 
-        ele = document.getElementById("holi");
-        while (ele.firstChild) {
-            ele.removeChild(ele.firstChild);
-        }
-        let  ela = document.getElementById("hono");
-        while (ela.firstChild) {
-            ela.removeChild(ela.firstChild);
-        }
+ele = document.getElementById("holi");
+while (ele.firstChild) {
+    ele.removeChild(ele.firstChild);
+}
+let  ela = document.getElementById("hono");
+while (ela.firstChild) {
+    ela.removeChild(ela.firstChild);
+}
         let dpi=null;
         var set_interval_id5 = setInterval(findTargetElement34, 300);
 
         function findTargetElement34(){
             if(cv==1){
-                chrome.storage.sync.get(['date'], function (value) {
+                // chrome.storage.sync.get(['date'], function (value) {
 
-                    value=value.date||[];
+                //     value=value.date||[];
             
-                    console.log(value);
+                //     console.log(value);
             
-                    _date=value;
+                //     _date=value;
             
-                  });
+                //   });
             
-                  chrome.storage.sync.get(['select'], function (value) {
+                //   chrome.storage.sync.get(['select'], function (value) {
             
-                    value=value.select||[];
+                //     value=value.select||[];
             
-                    console.log(value);
+                //     console.log(value);
             
-                    _select=value;
+                //     _select=value;
             
-                   });
+                //    });
             
-                       chrome.storage.sync.get(['url'], function (value) {
+                //        chrome.storage.sync.get(['url'], function (value) {
             
-                    value=value.url||[];
+                //     value=value.url||[];
             
-                    console.log(value);
+                //     console.log(value);
             
-                    _url=value;
-            
-                    r_length=_url.length;
+                //     _url=value;
             
             
-                   });
             
-                   chrome.storage.sync.get(['title'], function (value) {
+                //    });
             
-                    value=value.title||[];
+                //    chrome.storage.sync.get(['title'], function (value) {
             
-                    console.log(value);
+                //     value=value.title||[];
             
-                    _title=value;
+                //     console.log(value);
             
-                   });
+                //     _title=value;
             
+                //    });
+            
+                    r_length=in_url.length;
 
                 clearInterval(set_interval_id5);
         const url=uuu;
-        bool = _url.indexOf(url);
+        bool = in_url.indexOf(url);
            //日付オブジェクトを作成する
 
         _url2 = url;
@@ -742,7 +770,7 @@ ${title}
 
         }
         else {
-           let  date2=new Date(_date[bool]);
+           let  date2=new Date(in_date[bool]);
 //「年」を取得する
  YYYY = date2.getFullYear();
 //「月」を取得する
@@ -751,12 +779,12 @@ ${title}
 
 
 date=new Date( YYYY+ "/" + MM + "/" + DD);
-            foo_val = _select[bool];
+            foo_val = in_select[bool];
 
             flg = 1;
             if (url == "chrome://extensions/") {
                let vx = "";
-               switch (_select[bool]) {
+               switch (in_select[bool]) {
                    case '0': vx = "とてもいい"; break;
                    case '1': vx = "いい"; break;
                    case '2': vx = "わっるい"; break;
@@ -766,13 +794,13 @@ date=new Date( YYYY+ "/" + MM + "/" + DD);
                 $('#holi').append(`<br>
        <div id="click-this0" data-url="${url}">
        <a class="ui label" style="width:96vw;  overflow-wrap:break-word;"><i class="info circle icon"></i> ${vx} &nbsp;&nbsp;&nbsp;&nbsp; <div class="ui purple  horizontal label">${date}</div>
-       ${_title[bool]}
+       ${in_title[bool]}
          </a></div>`);
-                $(`input[value="${_select[bool]}"]`).prop('checked', true);
+                $(`input[value="${in_select[bool]}"]`).prop('checked', true);
 
             } else {
                 let vx = "";
-                switch (_select[bool]) {
+                switch (in_select[bool]) {
                     case '0': vx = "とてもいい"; break;
                     case '1': vx = "いい"; break;
                     case '2': vx = "わっるい"; break;
@@ -781,9 +809,9 @@ date=new Date( YYYY+ "/" + MM + "/" + DD);
                 $('#holi').append(`<br>
        <div id="click-this0" data-url="${url}" >
        <a class="ui label" style="width:96vw;  overflow-wrap:break-word;"><i class="info circle icon"></i> ${vx} &nbsp;&nbsp;&nbsp;&nbsp; <div class="ui red horizontal label">${date}</div>
-       ${_title[bool]}
+       ${in_title[bool]}
          </a></div>`);
-                $(`input[value="${_select[bool]}"]`).prop('checked', true);
+                $(`input[value="${in_select[bool]}"]`).prop('checked', true);
 
             }
         }
@@ -813,10 +841,10 @@ let i="click-this0";
             // }
         while(x<r_length){
 
-            console.log(_url[x]);
+            console.log(in_url[x]);
             let i="click-this";
             let vx="";
-            switch(_select[x]){
+            switch(in_select[x]){
                 case '0':vx="とてもいい";break;
                 case '1':vx="いい";break;
                 case '2':vx="わっるい";break;
@@ -829,18 +857,18 @@ let i="click-this0";
                 dfg=1;
 
                 let it=x+1;
-                if(_url[x]=="chrome://extensions/"){
+                if(in_url[x]=="chrome://extensions/"){
                 vl+=`<br>
-                <div id="${i+it}" data-url="${_url[x]}" >
-                <a class="ui label" style="width:96vw;  overflow-wrap:break-word;"><i class="info circle icon"></i> ${vx} &nbsp;&nbsp;&nbsp;&nbsp; <div class="ui purple horizontal label">${_date[x]}</div>
-                ${_title[x]}
+                <div id="${i+it}" data-url="${in_url[x]}" >
+                <a class="ui label" style="width:96vw;  overflow-wrap:break-word;"><i class="info circle icon"></i> ${vx} &nbsp;&nbsp;&nbsp;&nbsp; <div class="ui purple horizontal label">${in_date[x]}</div>
+                ${in_title[x]}
                   </a></div>`;
             }
             else{
                 vl+=`<br>
-                <div id="${i+it}" data-url="${_url[x]}" style="">
-                <a class="ui label" style="width:96vw;  overflow-wrap:break-word;"><i class="info circle icon"></i> ${vx} &nbsp;&nbsp;&nbsp;&nbsp; <div class="ui red horizontal label">${_date[x]}</div>
-                ${_title[x]}
+                <div id="${i+it}" data-url="${in_url[x]}" style="">
+                <a class="ui label" style="width:96vw;  overflow-wrap:break-word;"><i class="info circle icon"></i> ${vx} &nbsp;&nbsp;&nbsp;&nbsp; <div class="ui red horizontal label">${in_date[x]}</div>
+                ${in_title[x]}
                   </a></div>`;
             }
             }
@@ -863,6 +891,8 @@ let i="click-this0";
 
  
 }
+var obj = document.getElementById("embedpollfileinput");
+
    function kakiku(){
     let date_flg=0;
     if(limit.getTime()>=date.getTime()){
@@ -890,7 +920,6 @@ let i="click-this0";
 
     $('#inpo').prop('disabled','false');
 
-    resolve(e.currentTarget.result);  
 }
    }            
    
@@ -900,12 +929,10 @@ let i="click-this0";
 
 }
 
-
+        }
+    }
         
-      };
-      // 読み込む
-      fr.readAsText(file);
-    });
+
 };
 });
 
