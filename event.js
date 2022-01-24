@@ -112,11 +112,19 @@ chrome.runtime.onInstalled.addListener(() => {
                         case '2':vx="わっるい";break;
                         case '3':vx="とてもわっるい";break;
                     }
-                    if((item.menuItemId=="tweet-today"||item.menuItemId=="clip-today")&&(_date[x]==YYYY + "/" + MM + "/" + DD)){
+                    let str=_date[x].replace(/\r/,"");
+                    str=new Date(str);
+                    let hikaku=new Date(YYYY + "/" + MM + "/" + DD);
+                    let co=((str.getTime()==hikaku.getTime())==true);
+
+                    if((item.menuItemId=="tweet-today"||item.menuItemId=="clip-today")&&(co==true)){
+
                         head="今日のサイト評価\n";
                     copy +=`【${vx}】-${_title[x]}(${element})\n`;
+                    console.log(copy);
+
                     }
-                    else{
+                    else if((item.menuItemId=="tweet-all"||item.menuItemId=="clip-all")){
                         head="過去全てのサイト評価\n";
 
                     copy +=`【${vx}】-${_title[x]}(${element})\n`;
