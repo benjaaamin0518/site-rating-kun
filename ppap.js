@@ -843,12 +843,13 @@ function  findTargetElement(){
 
 let i="click-this0";
     let set=document.getElementById("click-this0");
-
+    vl="";
        console.log(_url);
        console.log(in_url);
     if(dpi==1&&JSON.stringify(_url) === JSON.stringify(in_url)){
 
         clearInterval(set_interval_id);
+        vl="";
             let x=0;
 
             if(r_length==0){
@@ -857,6 +858,7 @@ let i="click-this0";
 
             }
         while(x<r_length){
+            vl="";
 
             let i="click-this";
             let vx="";
