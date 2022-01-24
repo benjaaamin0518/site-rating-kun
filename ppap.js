@@ -497,6 +497,7 @@ function findTargetElement2(){
             
     
         }
+        return 1;
     }   
 
     
@@ -541,8 +542,10 @@ $("#embedpollfileinput").on('change',async function(e){
 var david ;
 var davi=0;
 let flg2;
-
+let ulength;
 let delete2=0;
+let xz=0;              
+
         // ファイルから内容をテキストとして取得する Promise を返す
 var fetchAsText = (file) => {
     return new Promise((resolve,reject) => {
@@ -614,6 +617,8 @@ var fetchAsText = (file) => {
 
 
   });
+
+
         function setter(){
             if(davi==1){
                 clearInterval(david);
@@ -656,7 +661,45 @@ var fetchAsText = (file) => {
         });
         chrome.storage.sync.set({'title':in_title} , function () {
         });
+            chrome.storage.sync.get(['date'], function (value) {
 
+        value=value.date||[];
+
+        console.log(value);
+
+        _date=value;
+
+      });
+
+      chrome.storage.sync.get(['select'], function (value) {
+
+        value=value.select||[];
+
+        console.log(value);
+
+        _select=value;
+
+       });
+           chrome.storage.sync.get(['url'], function (value) {
+
+        value=value.url||[];
+
+        console.log(value);
+
+        _url=value;
+
+
+       });
+// alert(_url)
+       chrome.storage.sync.get(['title'], function (value) {
+
+        value=value.title||[];
+
+        console.log(value);
+
+        _title=value;
+
+       });
        var set_interval_id2;
        var set_interval_id ;   
        let vl="";
@@ -692,50 +735,9 @@ while (ela.firstChild) {
 
         function findTargetElement34(){
             if(cv==1){
-                // chrome.storage.sync.get(['date'], function (value) {
-
-                //     value=value.date||[];
-            
-                //     console.log(value);
-            
-                //     _date=value;
-            
-                //   });
-            
-                //   chrome.storage.sync.get(['select'], function (value) {
-            
-                //     value=value.select||[];
-            
-                //     console.log(value);
-            
-                //     _select=value;
-            
-                //    });
-            
-                //        chrome.storage.sync.get(['url'], function (value) {
-            
-                //     value=value.url||[];
-            
-                //     console.log(value);
-            
-                //     _url=value;
-            
-            
-            
-                //    });
-            
-                //    chrome.storage.sync.get(['title'], function (value) {
-            
-                //     value=value.title||[];
-            
-                //     console.log(value);
-            
-                //     _title=value;
-            
-                //    });
+               
             
                     r_length=in_url.length;
-
                 clearInterval(set_interval_id5);
         const url=uuu;
         bool = in_url.indexOf(url);
@@ -815,6 +817,8 @@ date=new Date( YYYY+ "/" + MM + "/" + DD);
 
             }
         }
+        n=0;
+
         dpi=1;
        
 
@@ -823,14 +827,15 @@ date=new Date( YYYY+ "/" + MM + "/" + DD);
 
     }  
 }
-                    
-function findTargetElement(){
+function  findTargetElement(){
 
 
 let i="click-this0";
     let set=document.getElementById("click-this0");
 
-    if(dpi==1){
+       console.log(_url);
+       console.log(in_url);
+    if(dpi==1&&JSON.stringify(_url) === JSON.stringify(in_url)){
 
         clearInterval(set_interval_id);
 
@@ -841,7 +846,6 @@ let i="click-this0";
             // }
         while(x<r_length){
 
-            console.log(in_url[x]);
             let i="click-this";
             let vx="";
             switch(in_select[x]){
@@ -855,30 +859,36 @@ let i="click-this0";
             }
             else{
                 dfg=1;
+                n++;
 
                 let it=x+1;
                 if(in_url[x]=="chrome://extensions/"){
-                vl+=`<br>
-                <div id="${i+it}" data-url="${in_url[x]}" >
+                vl=`<br>
+                <div id="${i+n}" data-url="${in_url[x]}" >
                 <a class="ui label" style="width:96vw;  overflow-wrap:break-word;"><i class="info circle icon"></i> ${vx} &nbsp;&nbsp;&nbsp;&nbsp; <div class="ui purple horizontal label">${in_date[x]}</div>
                 ${in_title[x]}
                   </a></div>`;
+                  $('#hono').append(vl);
+
             }
             else{
-                vl+=`<br>
-                <div id="${i+it}" data-url="${in_url[x]}" style="">
+
+                vl=`<br>
+                <div id="${i+n}" data-url="${in_url[x]}" style="">
                 <a class="ui label" style="width:96vw;  overflow-wrap:break-word;"><i class="info circle icon"></i> ${vx} &nbsp;&nbsp;&nbsp;&nbsp; <div class="ui red horizontal label">${in_date[x]}</div>
                 ${in_title[x]}
                   </a></div>`;
+                  $('#hono').append(vl);
+
             }
             }
             x++;
-            n++;
         }
-        }
-        
-            set_interval_id2 =findTargetElement2();
 
+        
+    
+    
+        }
 
         
             
@@ -898,8 +908,29 @@ var obj = document.getElementById("embedpollfileinput");
     if(limit.getTime()>=date.getTime()){
     date_flg=1;
     }
-    if(dfg==1){
+    if(dfg==1&&n){
+        i="click-this";
 
+        set=document.getElementById("click-this"+n.toString());
+           console.log(set);
+           console.log(n);
+           if(set!=='undefined'||set!==null){
+       
+   
+               for(let v=0;v<=n;v++){
+                   let set=document.getElementById("click-this"+v.toString());
+                   alert(set.dataset.url);
+
+                       // console.log("#click-this"+v);    console.log(bool);
+               $("#click-this"+v).on("click", function () {
+                   window.open(set.dataset.url);
+        
+       
+               });
+               xz=n;
+   
+           }
+        }   
         clearInterval(kakikupro);
 
 
@@ -916,7 +947,6 @@ var obj = document.getElementById("embedpollfileinput");
             });
         });
     }  
-    $('#hono').append(vl);
 
     $('#inpo').prop('disabled','false');
 
