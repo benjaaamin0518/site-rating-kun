@@ -590,10 +590,16 @@ var fetchAsText = (file) => {
             dv++;
         }
         };
-        if((in_date.length==in_url.length==in_title.length==in_select.length&&flg2==0&&delete2==0)||delete2==1){
+        var obj = document.getElementById("embedpollfileinput");
+
+        if(((in_date.length+in_url.length+in_title.length+in_select.length)%4==0&&flg2==0&&delete2==0)||delete2==1){
 		r_length=null;
             $('#inpo').prop('disabled','true');
             $(".message").show();
+            _select=[];
+            _date= [];
+            _url=[];
+            _title=[];
             if(delete2==1){
                 _select=[];
                 _date= [];
@@ -612,56 +618,39 @@ var fetchAsText = (file) => {
         console.log(_date);
         console.log(_url);
         console.log(_title);
-
+            let cv=0;
         chrome.storage.sync.set({'select':_select} , function () {
         });
         chrome.storage.sync.set({'date':_date} , function () {
         });
-        chrome.storage.sync.set({'url':_url} , function () {
+      chrome.storage.sync.set({'url':_url} , async function () {
+          cv=1;
         });
         chrome.storage.sync.set({'title':_title} , function () {
         });
-        chrome.storage.sync.get(['date'], function (value) {
 
-        value=value.date||[];
+       var set_interval_id2;
+       var set_interval_id ;   
+       let vl="";
+    
+       var kakikupro ;       
+       let dfg=0;
+let dd = new Date();
+//「年」を取得する
+let YYYY = dd.getFullYear();
+//「月」を取得する
+let MM = dd.getMonth()+1;
+let DD = dd.getDate();
 
-        console.log(value);
+let year=YYYY-3;
 
-        _date=value;
+let limit=new Date( year+ "/" + MM + "/" + DD);
+let date;
+date=new Date(YYYY + "/" + MM + "/" + DD);
+var foo_val;
 
-      });
 
-      chrome.storage.sync.get(['select'], function (value) {
 
-        value=value.select||[];
-
-        console.log(value);
-
-        _select=value;
-
-       });
-
-           chrome.storage.sync.get(['url'], function (value) {
-
-        value=value.url||[];
-
-        console.log(value);
-
-        _url=value;
-
-        r_length=_url.length;
-
-       });
-
-       chrome.storage.sync.get(['title'], function (value) {
-
-        value=value.title||[];
-
-        console.log(value);
-
-        _title=value;
-
-       });
         ele = document.getElementById("holi");
         while (ele.firstChild) {
             ele.removeChild(ele.firstChild);
@@ -670,45 +659,65 @@ var fetchAsText = (file) => {
         while (ela.firstChild) {
             ela.removeChild(ela.firstChild);
         }
+        let dpi=null;
+        var set_interval_id5 = setInterval(findTargetElement34, 300);
 
+        function findTargetElement34(){
+            if(cv==1){
+                chrome.storage.sync.get(['date'], function (value) {
+
+                    value=value.date||[];
             
-                
+                    console.log(value);
             
-                    
-        var set_interval_id2;
-       
+                    _date=value;
+            
+                  });
+            
+                  chrome.storage.sync.get(['select'], function (value) {
+            
+                    value=value.select||[];
+            
+                    console.log(value);
+            
+                    _select=value;
+            
+                   });
+            
+                       chrome.storage.sync.get(['url'], function (value) {
+            
+                    value=value.url||[];
+            
+                    console.log(value);
+            
+                    _url=value;
+            
+                    r_length=_url.length;
+            
+            
+                   });
+            
+                   chrome.storage.sync.get(['title'], function (value) {
+            
+                    value=value.title||[];
+            
+                    console.log(value);
+            
+                    _title=value;
+            
+                   });
+            
 
-var set_interval_id = setInterval(findTargetElement, 300);
-function findTargetElement(){
-
-
-let i="click-this0";
-    let set=document.getElementById("click-this0");
-    if(r_length){
-
-        clearInterval(set_interval_id);
-	    
-const url=uuu;
+                clearInterval(set_interval_id5);
+        const url=uuu;
         bool = _url.indexOf(url);
-       //  alert(uuu);
            //日付オブジェクトを作成する
-let dd = new Date();
-//「年」を取得する
-let YYYY = dd.getFullYear();
-//「月」を取得する
-let MM = dd.getMonth()+1;
-let year=YYYY-3;
-let date;
-r_length=_url.length;
 
         _url2 = url;
-        let DD = dd.getDate();
-        let limit=new Date( year+ "/" + MM + "/" + DD);
-        bool=(bool=="")?-1:bool;
+        // bool=(bool=="")?-1:bool;
         if (bool == -1) {
-            var foo_val = 4;
+            foo_val= 4;
 
-            date=new Date(YYYY + "/" + MM + "/" + DD);
 
 
             if (url == "chrome://extensions/") {
@@ -733,11 +742,18 @@ ${title}
 
         }
         else {
-            date=new Date(_date[bool]);
-            var foo_val = _select[bool];
+           let  date2=new Date(_date[bool]);
+//「年」を取得する
+ YYYY = date2.getFullYear();
+//「月」を取得する
+ MM = date2.getMonth()+1;
+ DD = date2.getDate();
+
+
+date=new Date( YYYY+ "/" + MM + "/" + DD);
+            foo_val = _select[bool];
 
             flg = 1;
-            let date = _date[bool];
             if (url == "chrome://extensions/") {
                let vx = "";
                switch (_select[bool]) {
@@ -771,11 +787,32 @@ ${title}
 
             }
         }
+        dpi=1;
+       
 
-        let vl="";
-        // if(flg==1){
+        set_interval_id = setInterval(findTargetElement, 300);
+
+
+    }  
+}
+                    
+function findTargetElement(){
+
+
+let i="click-this0";
+    let set=document.getElementById("click-this0");
+
+    if(dpi==1){
+
+        clearInterval(set_interval_id);
+
             let x=0;
+            // if(r_length==0){
+            //     dfg=1;
+
+            // }
         while(x<r_length){
+
             console.log(_url[x]);
             let i="click-this";
             let vx="";
@@ -786,9 +823,11 @@ ${title}
                 case '3':vx="とてもわっるい";break;
             }
             if(bool==x&&flg==1){
-        
+
             }
             else{
+                dfg=1;
+
                 let it=x+1;
                 if(_url[x]=="chrome://extensions/"){
                 vl+=`<br>
@@ -809,46 +848,60 @@ ${title}
             n++;
         }
         }
-        $('#hono').append(vl);
         
             set_interval_id2 =findTargetElement2();
-          
- 
-}
 
-
-//         var set_interval_id = setInterval(findTargetElement, 300);
-               
-            let date_flg=0;
-            if(limit.getTime()>=date.getTime()){
-            date_flg=1;
-            }
 
         
             
-            $('#inpo').prop('disabled','false');
 
         $("#message").hide();
         $("#success_message").show();
         $("#success_message").fadeOut(1500);
 
-        if (!alert('インポートが完了しました。')) {
-            chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-                chrome.tabs.sendMessage(tabs[0].id, {
-                    val:foo_val,date:date_flg
-                },
-                function(msg) {
-            //              console.log("result message:", msg);
-                });
-            });
-        }      
+        kakikupro = setInterval(kakiku, 300);
+
+ 
 }
-        else{
-            alert("インポートが正しく行えませんでした。");
+   function kakiku(){
+    let date_flg=0;
+    if(limit.getTime()>=date.getTime()){
+    date_flg=1;
+    }
+    if(dfg==1){
 
-        }
+        clearInterval(kakikupro);
 
-        resolve(e.currentTarget.result);
+
+    if (!alert('インポートが完了しました。')) {
+
+
+        obj.value = "";
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {
+                val:foo_val,date:date_flg,inp:"inport"
+            },
+            function(msg) {
+        //              console.log("result message:", msg);
+            });
+        });
+    }  
+    $('#hono').append(vl);
+
+    $('#inpo').prop('disabled','false');
+
+    resolve(e.currentTarget.result);  
+}
+   }            
+   
+}else{
+    obj.value = "";
+    alert("インポートが正しく行えませんでした。");
+
+}
+
+
+        
       };
       // 読み込む
       fr.readAsText(file);

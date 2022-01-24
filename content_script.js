@@ -37,7 +37,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             case 4:vx=4;break;
         }
        
-        if(vx==4){
+        if(msg.inp){
             if(document.getElementsByClassName('box23')){
                 $('.box23').remove();
             }                if(document.getElementsByClassName('box22')){
