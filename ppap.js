@@ -857,6 +857,10 @@ let i="click-this0";
                 dfg=1;
 
             }
+            let  ela = document.getElementById("hono");
+while (ela.firstChild) {
+    ela.removeChild(ela.firstChild);
+}
         while(x<r_length){
             vl="";
 
@@ -883,8 +887,8 @@ let i="click-this0";
                 <a class="ui label" style="width:96vw;  overflow-wrap:break-word;"><i class="info circle icon"></i> ${vx} &nbsp;&nbsp;&nbsp;&nbsp; <div class="ui purple horizontal label">${in_date[x]}</div>
                 ${in_title[x]}
                   </a></div>`;
-
-            }
+                  $('#hono').append(vl);
+                }
             else{
 
                 vl=`<br>
@@ -892,6 +896,7 @@ let i="click-this0";
                 <a class="ui label" style="width:96vw;  overflow-wrap:break-word;"><i class="info circle icon"></i> ${vx} &nbsp;&nbsp;&nbsp;&nbsp; <div class="ui red horizontal label">${in_date[x]}</div>
                 ${in_title[x]}
                   </a></div>`;
+                  $('#hono').append(vl);
 
             }
             }
@@ -914,7 +919,6 @@ let i="click-this0";
 
  
 }
-$('#hono').append(vl);
 
 var obj = document.getElementById("embedpollfileinput");
 
