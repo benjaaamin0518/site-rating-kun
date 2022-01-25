@@ -759,6 +759,7 @@ while (ela.firstChild) {
         if (bool == -1) {
             foo_val= 4;
 
+            flg=0;
 
 
             if (url == "chrome://extensions/") {
