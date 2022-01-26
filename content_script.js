@@ -47,7 +47,12 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             $('body').prepend(
                 `<center><div class="box23">
                 <p>このサイトはまだ評価がありません</p>
-                </div></center>
+                </div>
+                <a class="twitter-timeline"
+  href="https://twitter.com/{screen_name}">
+Tweets by @{screen_name}
+</a>
+                </center>
                 `
                                 ); 
         }
@@ -67,7 +72,14 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             `<center><div class="box22">
             <p>このサイトの評価は<b>${vx}</b>です${year}</p>
             
-            </div></center>
+            </div>
+            <a class="twitter-timeline"
+
+  href="https://twitter.com/{screen_name}">
+
+Tweets by @{screen_name}
+
+</a></center>
             
             `
                             ); 
@@ -128,7 +140,12 @@ chrome.storage.sync.get(['date'], function (value) {
                 $('body').prepend(
 `<center><div class="box23">
 <p>このサイトはまだ評価がありません</p>
-</div></center>
+</div>
+<a class="twitter-timeline"
+  href="https://twitter.com/{screen_name}">
+Tweets by @{screen_name}
+</a>
+</center>
 `
                 );
             }
@@ -167,7 +184,12 @@ chrome.storage.sync.get(['date'], function (value) {
                     `<center><div class="box22">
                     <p>このサイトの評価は<b>${vx}</b>です${_year}</p>
                     
-                    </div></center>
+                    </div>
+                    <a class="twitter-timeline"
+  href="https://twitter.com/{screen_name}">
+Tweets by @{screen_name}
+</a>
+                    </center>
                     
                     `
                                     ); 
@@ -249,7 +271,12 @@ chrome.storage.sync.get(['date'], function (value) {
                 $('body').prepend(
 `<center><div class="box23">
 <p>このサイトはまだ評価がありません</p>
-</div></center>
+</div>
+<a class="twitter-timeline"
+  href="https://twitter.com/{screen_name}">
+Tweets by @{screen_name}
+</a>
+</center>
 `
                 );
             }
@@ -289,7 +316,16 @@ chrome.storage.sync.get(['date'], function (value) {
                     `<center><div class="box22">
                     <p>このサイトの評価は<b>${vx}</b>です${_year}</p>
                     
-                    </div></center>
+                    </div>
+                    
+  
+  
+  
+<a class="twitter-timeline"
+  href="https://twitter.com/{screen_name}">
+Tweets by @{screen_name}
+</a>
+                    </center>
                     
                     `
                                     ); 
