@@ -139,7 +139,7 @@ chrome.storage.sync.get(['date'], function (value) {
 `<center><div class="box23">
 <p>このサイトはまだ評価がありません</p>
 </div>
-<blockquote class="twitter-tweet">
+<blockquote class="twitter-tweet" id="wlitet">
 
 <a href="https://twitter.com/user/status/(tweetid)"></a>
 
@@ -206,7 +206,9 @@ chrome.storage.sync.get(['date'], function (value) {
     
         }
     } 
- 
+ twttr.widgets.load(
+    document.getElementById("wlitet");
+)
     var href = location.href;
     var observer = new MutationObserver(function(mutations) {
       if(href !== location.href) {
