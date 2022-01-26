@@ -84,12 +84,7 @@ chrome.runtime.onInstalled.addListener(() => {
        });
        let set_interval_id2 = setInterval(findTargetElement2, 300);
        function findTargetElement2(){
-    
-    
-    
-    
-    
-    
+             
             if(r_length!=='undefined'){
                 clearInterval(set_interval_id2);
                 let x=0;
@@ -120,14 +115,14 @@ chrome.runtime.onInstalled.addListener(() => {
                     if((item.menuItemId=="tweet-today"||item.menuItemId=="clip-today")&&(co==true)){
 
                         head="今日のサイト評価\n";
-                    copy +=`【${vx}】-${_title[x]}(${element})\n`;
+                    copy +=`【${vx}】-${_title[x]}-${element}\n`;
                     console.log(copy);
 
                     }
                     else if((item.menuItemId=="tweet-all"||item.menuItemId=="clip-all")){
                         head="過去全てのサイト評価\n";
 
-                    copy +=`【${vx}】-${_title[x]}(${element})\n`;
+                    copy +=`【${vx}】-${_title[x]}-${element}\n`;
                     }
                     x++;
                 });
