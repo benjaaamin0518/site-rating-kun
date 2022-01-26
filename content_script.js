@@ -200,9 +200,7 @@ chrome.storage.sync.get(['date'], function (value) {
     
         }
     } 
- twttr.widgets.load(
-    document.getElementById("wlitet");
-)
+ 
     var href = location.href;
     var observer = new MutationObserver(function(mutations) {
       if(href !== location.href) {
