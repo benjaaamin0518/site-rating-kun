@@ -3,7 +3,19 @@ let _url;
 let uuu;
 let _select;
 let r_length;
+twttr.widgets.createTimeline(
 
+  {
+
+    sourceType: "profile",
+
+    screenName: "TwitterDev"
+
+  },
+
+  document.getElementById("container")
+
+);
 
 chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
     if(msg.val=="copy"){ 
