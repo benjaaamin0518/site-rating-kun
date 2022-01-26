@@ -599,6 +599,7 @@ var fetchAsText = (file) => {
         if(lock==0){
             for(let x=0;child.length>x;x++){
                 let e=child[x];
+                e=e.replace(/\n|\r\n|\r/,"");
                 let vx="";
                     switch(e){
                         case 'とてもいい':vx="0";break;
