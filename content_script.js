@@ -45,10 +45,15 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             }
     
             $('body').prepend(
-                `<center><div class="box23">
+                `
+                <center><div class="box23">
                 <p>このサイトはまだ評価がありません
-                <a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  id="twitter">URLを検索</a>
-
+                <a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  class="text-decoration-none" id="tw_ter">
+                URLを検索
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+                </svg>
+                </a>
                 </p>
                 </div>
             
@@ -69,10 +74,16 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
         }
 
         $('body').prepend(
-            `<center><div class="box22">
+            `
+            
+            <center><div class="box22">
             <p>このサイトの評価は<b>${vx}</b>です${year}
-            <a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  id="twitter">URLを検索</a>
-
+            <a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  class="text-decoration-none" id="tw_ter">
+            URLを検索
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+            </svg>
+            </a>
             </p>
             
             </div>
@@ -136,9 +147,16 @@ chrome.storage.sync.get(['date'], function (value) {
             bool=_url.indexOf(uuu);
             if(bool==-1){
                 $('body').prepend(
-`<center><div class="box23">
+`
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<center><div class="box23">
 <p>このサイトはまだ評価がありません
-<a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  id="twitter">URLを検索</a>
+<a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  class="text-decoration-none" id="tw_ter">
+URLを検索
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+</svg>
+</a>
 </p>
 </div>
 
@@ -178,10 +196,16 @@ chrome.storage.sync.get(['date'], function (value) {
                 // }
         
                 $('body').prepend(
-                    `<center><div class="box22">
+                    `
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+                    <center><div class="box22">
                     <p>このサイトの評価は<b>${vx}</b>です${_year}
-                    <a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  id="twitter">URLを検索</a>
-
+                    <a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  class="text-decoration-none" id="tw_ter">
+                    URLを検索
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+                    </svg>
+                    </a>
                     </p>
                     
                     </div>
@@ -206,7 +230,6 @@ chrome.storage.sync.get(['date'], function (value) {
       if(href !== location.href) {
         let _date;
 let _url;
-let uuu;
 let _select;
 let r_length;
 
@@ -266,10 +289,16 @@ chrome.storage.sync.get(['date'], function (value) {
                     $('.box22').remove();
                 }
                 $('body').prepend(
-`<center><div class="box23">
+`
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<center><div class="box23">
 <p>このサイトはまだ評価がありません
-<a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  id="twitter">URLを検索</a>
-
+<a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  class="text-decoration-none" id="tw_ter">
+URLを検索
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+</svg>
+</a>
 </p>
 </div>
    
@@ -310,10 +339,16 @@ chrome.storage.sync.get(['date'], function (value) {
                     $('.box22').remove();
                 }
                 $('body').prepend(
-                    `<center><div class="box22">
+                    `
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+                    <center><div class="box22">
                     <p>このサイトの評価は<b>${vx}</b>です${_year}
-                    <a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  id="twitter">URLを検索</a>
-
+                    <a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  class="text-decoration-none" id="tw_ter">
+                    URLを検索
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+                    </svg>
+                    </a>
                     </p>
                     
                     </div>
