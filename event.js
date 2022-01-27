@@ -22,6 +22,7 @@ chrome.runtime.onInstalled.addListener(() => {
         title: '全て',
         contexts:["all"]
       });
+
       chrome.contextMenus.create({
         id: 'clip-today',
         parentId: 'parent',

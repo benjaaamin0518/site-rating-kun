@@ -46,7 +46,10 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
     
             $('body').prepend(
                 `<center><div class="box23">
-                <p>このサイトはまだ評価がありません</p>
+                <p>このサイトはまだ評価がありません
+                <a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  id="twitter">URLを検索</a>
+
+                </p>
                 </div>
             
                 </center>
@@ -67,7 +70,10 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
 
         $('body').prepend(
             `<center><div class="box22">
-            <p>このサイトの評価は<b>${vx}</b>です${year}</p>
+            <p>このサイトの評価は<b>${vx}</b>です${year}
+            <a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  id="twitter">URLを検索</a>
+
+            </p>
             
             </div>
           
@@ -131,8 +137,11 @@ chrome.storage.sync.get(['date'], function (value) {
             if(bool==-1){
                 $('body').prepend(
 `<center><div class="box23">
-<p>このサイトはまだ評価がありません</p>
+<p>このサイトはまだ評価がありません
+<a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  id="twitter">URLを検索</a>
+</p>
 </div>
+
 </center>
 `
                 );
@@ -170,10 +179,13 @@ chrome.storage.sync.get(['date'], function (value) {
         
                 $('body').prepend(
                     `<center><div class="box22">
-                    <p>このサイトの評価は<b>${vx}</b>です${_year}</p>
+                    <p>このサイトの評価は<b>${vx}</b>です${_year}
+                    <a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  id="twitter">URLを検索</a>
+
+                    </p>
                     
                     </div>
- 
+
                     </center>
                     
                     `
@@ -188,7 +200,7 @@ chrome.storage.sync.get(['date'], function (value) {
     
         }
     } 
- 
+
     var href = location.href;
     var observer = new MutationObserver(function(mutations) {
       if(href !== location.href) {
@@ -255,7 +267,10 @@ chrome.storage.sync.get(['date'], function (value) {
                 }
                 $('body').prepend(
 `<center><div class="box23">
-<p>このサイトはまだ評価がありません</p>
+<p>このサイトはまだ評価がありません
+<a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  id="twitter">URLを検索</a>
+
+</p>
 </div>
    
 </center>
@@ -296,7 +311,10 @@ chrome.storage.sync.get(['date'], function (value) {
                 }
                 $('body').prepend(
                     `<center><div class="box22">
-                    <p>このサイトの評価は<b>${vx}</b>です${_year}</p>
+                    <p>このサイトの評価は<b>${vx}</b>です${_year}
+                    <a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  id="twitter">URLを検索</a>
+
+                    </p>
                     
                     </div>
                     
