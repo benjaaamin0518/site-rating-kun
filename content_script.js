@@ -48,11 +48,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
                 `<center><div class="box23">
                 <p>このサイトはまだ評価がありません</p>
                 </div>
-              <blockquote class="twitter-tweet">
-
-<a href="https://twitter.com/user/status/(tweetid)"></a>
-
-</blockquote>
+            
                 </center>
                 `
                                 ); 
@@ -74,9 +70,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             <p>このサイトの評価は<b>${vx}</b>です${year}</p>
             
             </div>
-            <blockquote class="twitter-tweet">
-<a href="https://twitter.com/user/status/(tweetid)"></a>
-</blockquote>
+          
             </center>
             
             `
@@ -139,7 +133,6 @@ chrome.storage.sync.get(['date'], function (value) {
 `<center><div class="box23">
 <p>このサイトはまだ評価がありません</p>
 </div>
-<iframe src="https://mobile.twitter.com/search?q=url%3Asyncer.jp" width="100%" height="400px">
 </center>
 `
                 );
@@ -180,12 +173,7 @@ chrome.storage.sync.get(['date'], function (value) {
                     <p>このサイトの評価は<b>${vx}</b>です${_year}</p>
                     
                     </div>
-                    <blockquote class="twitter-tweet">
-<a href="https://twitter.com/user/status/(tweetid)"></a>
-</blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
-
-</script>
+ 
                     </center>
                     
                     `
@@ -269,11 +257,7 @@ chrome.storage.sync.get(['date'], function (value) {
 `<center><div class="box23">
 <p>このサイトはまだ評価がありません</p>
 </div>
-         <blockquote class="twitter-tweet">
-
-<a href="https://twitter.com/user/status/(tweetid)"></a>
-
-</blockquote>
+   
 </center>
 `
                 );
@@ -316,10 +300,7 @@ chrome.storage.sync.get(['date'], function (value) {
                     
                     </div>
                     
-           <blockquote class="twitter-tweet">
-<a href="https://twitter.com/user/status/(tweetid)"></a>
-</blockquote>
-  
+
   
 
                     </center>
