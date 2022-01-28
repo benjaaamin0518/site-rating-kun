@@ -3,6 +3,8 @@ let _url;
 let uuu;
 let _select;
 let r_length;
+let title;
+let kai=0;
 
 
 chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
@@ -104,12 +106,13 @@ async function useURLFunc() {
     let sendMsgFunc = () => {
         return new Promise(resolve => {
             chrome.runtime.sendMessage({ greeting: 'url' }, response => {
-                resolve(response.farewell);
+                resolve([response.farewell,response.title]);
             });
         });
     };
     let url = await sendMsgFunc();
-    uuu=url;
+    uuu=url[0];
+    title=url[1]
 
 }
 
@@ -232,7 +235,7 @@ URLを検索
 let _url;
 let _select;
 let r_length;
-
+kai=0;
 // alert(`updated:`);
 
 
@@ -241,12 +244,14 @@ async function useURLFunc() {
     let sendMsgFunc = () => {
         return new Promise(resolve => {
             chrome.runtime.sendMessage({ greeting: 'url' }, response => {
-                resolve(response.farewell);
+                resolve([response.farewell,response.title]);
             });
         });
     };
     let url = await sendMsgFunc();
-    uuu=url;
+    uuu=url[0];
+    title=url[1]
+
 
 }
 
@@ -375,3 +380,87 @@ URLを検索
     });
     
     observer.observe(document, { childList: true, subtree: true });
+
+      const bodyHeight = document.body.clientHeight // bodyの高さを取得
+    const windowHeight = window.innerHeight // windowの高さを取得
+    const bottomPoint = bodyHeight - windowHeight // ページ最下部までスクロールしたかを判定するための位置を計算
+    
+    window.addEventListener('scroll', () => {
+      const currentPos = window.pageYOffset // スクロール量を取得
+      let ui="";
+      if (bottomPoint <= currentPos&&kai==0) { // スクロール量が最下部の位置を過ぎたかどうか
+        kai=1;
+           let str =title;
+   let  r=/[一-龠]+|[ぁ-ん]+|[ァ-ヴー]+|[a-zA-Z0-9]+|[ａ-ｚＡ-Ｚ０-９]+/g;
+   r=str.match(r);
+     let dd="";
+     let i=0;
+  r.forEach(e=>{
+    i++;
+    if(dd[i]){
+        dd+=`${e}`;
+
+    }
+    else{
+        dd+=`${e} OR `;
+
+    }
+  });
+getqiita(dd);
+}
+       else {
+      }
+    });
+    function getqiita(r){
+  let token='12a6da09778515b1b76182f9490e8a3b58897afa';
+
+ 
+  // Qiita API による自身の投稿を取得
+
+  $.ajax({
+    type: "GET",
+    url: 'https://qiita.com/api/v2/items?page=1&per_page=11&query='+r,
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + token,
+    },
+    dataType: "json",
+    async: false,        // 同期通信
+    success: function(data){
+        console.log(r);
+      stocks = data;
+      let dd2="関連記事(Qiita上にある記事より抜粋)<br><br>";
+      let i=0;
+      stocks.forEach(e=>{
+          let tt=title.replace(" - Qiita","");
+
+         if(e.title==tt||i>10){
+            console.log(e.title);
+          }
+          else{
+            i++;
+    
+          dd2+=`<p style="margin-bottom:5px;"><b>${i}.${e.title}</b>(<a href="${e.url}" target="_blank" style="font-size:12px;">${e.url}</a>)</p><hr style="border-width: 0; /* 平面の線に指定 */
+          height: 2px; 
+          margin-bottom:5px;
+          background:linear-gradient(to left,#5bb7ae 70%, #5bb7ae 30%);
+          background: -webkit-linear-gradient(to left,#5bb7ae 70%, #5bb7ae 30%);">`;
+          }
+      })
+      $('body').append(
+       `
+       <center><div class="box22" style="width:75%">${dd2}</center></div>`
+                        );     },
+    error: function(XMLHttpRequest, textStatus, errorThrown){
+    //   alert('Error3 : ' + errorThrown);
+    $('body').append(
+        `
+        <center><div class="box22" style="width:75%">関連記事が取得できませんでした</center></div>`
+                         );  
+    }
+  });
+
+
+
+
+    }
