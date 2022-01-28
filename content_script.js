@@ -399,14 +399,16 @@ URLを検索
      let i=0;
   r.forEach(e=>{
     i++;
-    if(r.length==i&&e.length>1){
+      let ab=/[一-龠]+/g;
+      let ba=ab.test(e);
+      if(r.length==i&&(e.length>1||ba)){
         dd+=` tag:${e}`;
 
     }
     else if(e==""){
 
     }
-    else if(e.length>1){
+    else if(e.length>1||ba){
         dd+=` tag:${e} OR`;
 
     }
