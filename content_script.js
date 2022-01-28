@@ -402,14 +402,14 @@ URLを検索
       let ab=/[一-龠]+/g;
       let ba=ab.test(e);
       if(r.length==i&&(e.length>1||ba)){
-        dd+=` tag:${e}`;
+        dd+=`tag:${e}+stocks:>=100`;
 
     }
     else if(e==""){
 
     }
     else if(e.length>1||ba){
-        dd+=` tag:${e} OR`;
+        dd+=`tag:${e}+stocks:>=100 OR `;
 
     }
   });
@@ -426,7 +426,7 @@ getqiita(dd);
 
   $.ajax({
     type: "GET",
-    url: 'https://qiita.com/api/v2/items?page=1&per_page=11&query=stocks:>100'+r,
+    url: 'https://qiita.com/api/v2/items?page=1&per_page=11&query='+r,
     headers: {
       "Content-Type": "application/json",
       "Authorization": "Bearer " + token,
@@ -435,7 +435,7 @@ getqiita(dd);
     async: false,        // 同期通信
     success: function(data){
         console.log(r);
-        console.log('https://qiita.com/api/v2/items?page=1&per_page=11&query=stocks%3A%3E100'+r);
+        console.log('https://qiita.com/api/v2/items?page=1&per_page=11&query='+r);
       stocks = data;
       console.log(data);
       let dd2="関連記事(Qiita上にある記事より抜粋)<br><br>";
