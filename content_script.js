@@ -434,7 +434,7 @@ getqiita(dd);
       stocks.forEach(e=>{
           let tt=title.replace(" - Qiita","");
 
-         if(e.title==tt||i>10){
+         if(e.title==tt||i>9){
             console.log(e.title);
           }
           else{
