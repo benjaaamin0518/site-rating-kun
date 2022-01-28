@@ -391,13 +391,13 @@ URLを検索
       if (bottomPoint <= currentPos&&kai==0) { // スクロール量が最下部の位置を過ぎたかどうか
         kai=1;
            let str =title;
-   let  r=/[一-龠]+|[ぁ-ん]+|[ァ-ヴー]+|[a-zA-Z0-9]+|[ａ-ｚＡ-Ｚ０-９]+/g;
+   let  r=/[一-龠]+|[ぁ-ん]+|[ァ-ヴー]+|[a-z]+|[A-Z]+|[0-9]+|[ａ-ｚ]+|[Ａ-Ｚ]+|[０-９]+/g;
    r=str.match(r);
      let dd="";
      let i=0;
   r.forEach(e=>{
     i++;
-    if(dd[i]){
+    if(dd.length==i){
         dd+=`${e}`;
 
     }
