@@ -424,7 +424,7 @@ getqiita(dd);
 
   $.ajax({
     type: "GET",
-    url: 'https://qiita.com/api/v2/items?page=1&per_page=11&query='+r,
+    url: 'https://qiita.com/api/v2/items?page=1&per_page=11&query='+r+' stocks:>100',
     headers: {
       "Content-Type": "application/json",
       "Authorization": "Bearer " + token,
