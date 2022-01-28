@@ -391,18 +391,23 @@ URLを検索
       if (bottomPoint <= currentPos&&kai==0) { // スクロール量が最下部の位置を過ぎたかどうか
         kai=1;
            let str =title;
-   let  r=/[一-龠]+|[ぁ-ん]+|[ァ-ヴー]+|[a-z]+|[A-Z]+|[0-9]+|[ａ-ｚ]+|[Ａ-Ｚ]+|[０-９]+/g;
+   let  r=/[一-龠]+|[ぁ-ん]+|[ァ-ヴー]+|[a-zA-Z]+|[0-9]+|[ａ-ｚＡ-Ｚ]+|[０-９]+/g;
+ str=str.replace(" - Qiita","");
+
    r=str.match(r);
      let dd="";
      let i=0;
   r.forEach(e=>{
     i++;
-    if(dd.length==i){
-        dd+=`${e}`;
+    if(r.length==i){
+        dd+=`tag:${e}`;
+
+    }
+    else if(e==""){
 
     }
     else{
-        dd+=`${e} OR `;
+        dd+=`tag:${e} OR `;
 
     }
   });
@@ -429,6 +434,7 @@ getqiita(dd);
     success: function(data){
         console.log(r);
       stocks = data;
+      console.log(data);
       let dd2="関連記事(Qiita上にある記事より抜粋)<br><br>";
       let i=0;
       stocks.forEach(e=>{
