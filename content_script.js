@@ -399,15 +399,15 @@ URLを検索
      let i=0;
   r.forEach(e=>{
     i++;
-    if(r.length==i){
-        dd+=`tag:${e}`;
+    if(r.length==i&&e.length>1){
+        dd+=` tag:${e}`;
 
     }
     else if(e==""){
 
     }
-    else{
-        dd+=`tag:${e} OR `;
+    else if(e.length>1){
+        dd+=` tag:${e} OR`;
 
     }
   });
@@ -424,7 +424,7 @@ getqiita(dd);
 
   $.ajax({
     type: "GET",
-    url: 'https://qiita.com/api/v2/items?page=1&per_page=11&query='+r+'+stocks:>100',
+    url: 'https://qiita.com/api/v2/items?page=1&per_page=11&query=stocks:>100'+r,
     headers: {
       "Content-Type": "application/json",
       "Authorization": "Bearer " + token,
@@ -433,6 +433,7 @@ getqiita(dd);
     async: false,        // 同期通信
     success: function(data){
         console.log(r);
+        console.log('https://qiita.com/api/v2/items?page=1&per_page=11&query=stocks%3A%3E100'+r);
       stocks = data;
       console.log(data);
       let dd2="関連記事(Qiita上にある記事より抜粋)<br><br>";
