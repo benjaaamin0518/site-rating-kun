@@ -391,14 +391,16 @@ URLを検索
       if (bottomPoint <= currentPos&&kai==0) { // スクロール量が最下部の位置を過ぎたかどうか
         kai=1;
            let str =title;
-   let  r=/[一-龠]+|[ぁ-ん]+|[ァ-ヴー]+|[a-zA-Z]+|[0-9]+|[ａ-ｚＡ-Ｚ]+|[０-９]+/g;
- str=str.replace(" - Qiita","");
+   let  r=/(.+)\】+|[一-龠]+|[ぁ-ん]+|[ァ-ヴー]+|[a-zA-Z]+|[0-9]+|[ａ-ｚＡ-Ｚ]+|[０-９]+/g;
+   str=str.replace(" - Qiita","");
 
    r=str.match(r);
      let dd="";
      let i=0;
   r.forEach(e=>{
     i++;
+        e=e.replace(/\【|\】/g,"");
+        alert(e);
       let ab=/[一-龠]+/g;
       let ba=ab.test(e);
       if(r.length==i&&(e.length>1||ba)){
