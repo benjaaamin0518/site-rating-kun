@@ -400,18 +400,18 @@ URLを検索
   r.forEach(e=>{
     i++;
         e=e.replace(/\【|\】/g,"");
-        alert(e);
+        
       let ab=/[一-龠]+/g;
       let ba=ab.test(e);
       if(r.length==i&&(e.length>1||ba)){
-        dd+=`tag:${e}+stocks:>=100`;
+        dd+=`tag:${encodeURIComponent(e)}+stocks:>=100`;
 
     }
     else if(e==""){
 
     }
     else if(e.length>1||ba){
-        dd+=`tag:${e}+stocks:>=100 OR `;
+        dd+=`tag:${encodeURIComponent(e)}+stocks:>=100 OR `;
 
     }
   });
