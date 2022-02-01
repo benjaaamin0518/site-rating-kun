@@ -451,7 +451,7 @@ getqiita(dd);
           else{
             i++;
     
-          dd2+=`<p style="margin-bottom:5px;"><b>${i}.${e.title}</b>(<a href="${e.url}" target="_blank" style="font-size:12px;">${e.url}</a>)</p><hr style="border-width: 0; /* 平面の線に指定 */
+          dd2+=`<p style="margin-bottom:5px;"><b>${i}.${escape_html(e.title)}</b>(<a href="${e.url}" target="_blank" style="font-size:12px;">${e.url}</a>)</p><hr style="border-width: 0; /* 平面の線に指定 */
           height: 2px; 
           margin-bottom:5px;
           background:linear-gradient(to left,#5bb7ae 70%, #5bb7ae 30%);
@@ -475,3 +475,18 @@ getqiita(dd);
 
 
     }
+    function escape_html (string) {
+        if(typeof string !== 'string') {
+          return string;
+        }
+        return string.replace(/[&'`"<>]/g, function(match) {
+          return {
+            '&': '&amp;',
+            "'": '&#x27;',
+            '`': '&#x60;',
+            '"': '&quot;',
+            '<': '&lt;',
+            '>': '&gt;',
+          }[match]
+        });
+      }
