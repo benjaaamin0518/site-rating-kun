@@ -238,7 +238,7 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 }
 $('#search').on('input',function(){
     let res_url=[];
-    n=0;
+    n=1;
    let  ela = document.getElementById("hono");
     while (ela.firstChild) {
         ela.removeChild(ela.firstChild);
@@ -354,30 +354,27 @@ let vn=0;
     }
 
     else{
-     
+     n++;
         if(_url[x]=="chrome://extensions/"){
         vl+=`<br>
-        <div id="${i+it}" data-url="${_url[x]}" >
+        <div id="${i+n}" data-url="${_url[x]}" >
         <a class="ui label" style="width:96vw;  overflow-wrap:break-word;"><i class="info circle icon"></i> ${vx} &nbsp;&nbsp;&nbsp;&nbsp; <div class="ui purple horizontal label">${_date[x]}</div>
         ${_title[x]}
           </a></div>`;
           vbf++;
- it++;
     }
     else{
         vl+=`<br>
-        <div id="${i+it}" data-url="${_url[x]}" style="">
+        <div id="${i+n}" data-url="${_url[x]}" style="">
         <a class="ui label" style="width:96vw;  overflow-wrap:break-word;"><i class="info circle icon"></i> ${vx} &nbsp;&nbsp;&nbsp;&nbsp; <div class="ui red horizontal label">${_date[x]}</div>
         ${_title[x]}
           </a></div>`;
           vbf++;
- it++;
     }
     }
    x++;
 
 }
-n++;
 
           
   
@@ -386,30 +383,11 @@ n++;
 
 $('#hono').append(vl);
 
-let i="click-this";
-	
-        let set=document.getElementById("click-this"+n.toString());
-        console.log(set);
-        console.log(n);
-        if(set!=='undefined'||set!==null){
-    
-            clearInterval(set_interval_id2);
+var set_interval_id2;
 
-            for(let v=0;v<=n;v++){
-                let set=document.getElementById("click-this"+v.toString());
+set_interval_id2 =findTargetElement2(findTargetElement2, 300);
 
-                    // console.log("#click-this"+v);    console.log(bool);
-            $("#click-this"+v).on("click", function () {
-                window.open(set.dataset.url);
-     
-    
-            });
-        }
-        
-      
-
-    
-        }});
+});
 var set_interval_id2;
 var set_interval_id = setInterval(findTargetElement, 300);
 function findTargetElement(){
