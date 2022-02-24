@@ -45,7 +45,37 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             }                if(document.getElementsByClassName('box22')){
                 $('.box22').remove();
             }
-    
+            let html_pre="";
+            _url.forEach(element => {
+                var url_bool=_url.indexOf(element);
+                var select_vx="";
+                switch(_select[url_bool]){
+                    case '0':select_vx="とてもいい";break;
+                    case '1':select_vx="いい";break;
+                    case '2':select_vx="わっるい";break;
+                    case '3':select_vx="とてもわっるい";break;
+                }
+                html_pre=`<span style='  
+                box-sizing: border-box;
+                white-space: nowrap;
+                border-radius: 0.2em;
+                padding: 0.12em 0.4em 0.14em;
+                margin: 0 0.42em;
+                text-align: center;
+                color: #ffffff;
+                font-size: 0.75em;
+                font-weight: 700;
+                line-height: 1;
+                display: inline;
+                white-space: nowrap;
+                vertical-align: baseline;
+                position: relative;
+                top: -0.15em;
+                background-color: #9bc268;'>評価:${select_vx}</span>`
+                $(`a[href='${element}']`).prepend(html_pre);
+                
+ 
+            });
             $('body').prepend(
                 `
                 <center><div class="box23">
@@ -74,7 +104,37 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
         }                if(document.getElementsByClassName('box22')){
             $('.box22').remove();
         }
+        let html_pre="";
+        _url.forEach(element => {
+            var url_bool=_url.indexOf(element);
+            var select_vx="";
+            switch(_select[url_bool]){
+                case '0':select_vx="とてもいい";break;
+                case '1':select_vx="いい";break;
+                case '2':select_vx="わっるい";break;
+                case '3':select_vx="とてもわっるい";break;
+            }
+            html_pre=`<span style='  
+            box-sizing: border-box;
+            white-space: nowrap;
+            border-radius: 0.2em;
+            padding: 0.12em 0.4em 0.14em;
+            margin: 0 0.42em;
+            text-align: center;
+            color: #ffffff;
+            font-size: 0.75em;
+            font-weight: 700;
+            line-height: 1;
+            display: inline;
+            white-space: nowrap;
+            vertical-align: baseline;
+            position: relative;
+            top: -0.15em;
+            background-color: #9bc268;'>評価:${select_vx}</span>`
+            $(`a[href='${element}']`).prepend(html_pre);
+            
 
+        });
         $('body').prepend(
             `
             
@@ -149,6 +209,38 @@ chrome.storage.sync.get(['date'], function (value) {
             clearInterval(set_interval_id2);
             bool=_url.indexOf(uuu);
             if(bool==-1){
+                let html_pre="";
+                _url.forEach(element => {
+                    var url_bool=_url.indexOf(element);
+                    var select_vx="";
+                    switch(_select[url_bool]){
+                        case '0':select_vx="とてもいい";break;
+                        case '1':select_vx="いい";break;
+                        case '2':select_vx="わっるい";break;
+                        case '3':select_vx="とてもわっるい";break;
+                    }
+                    html_pre=`<span style='  
+                    box-sizing: border-box;
+                    white-space: nowrap;
+                    border-radius: 0.2em;
+                    padding: 0.12em 0.4em 0.14em;
+                    margin: 0 0.42em;
+                    text-align: center;
+                    color: #ffffff;
+                    font-size: 0.75em;
+                    font-weight: 700;
+                    line-height: 1;
+                    display: inline;
+                    white-space: nowrap;
+                    vertical-align: baseline;
+                    position: relative;
+                    top: -0.15em;
+                    background-color: #9bc268;'>評価:${select_vx}</span>`
+                    $(`a[href='${element}']`).prepend(html_pre);
+                    
+     
+                });
+
                 $('body').prepend(
 `
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -197,7 +289,37 @@ URLを検索
                 // if(new Date("2021-1-25").getTime()>=limit.getTime()){
                     // alert("3出来てる?");
                 // }
-        
+                let html_pre="";
+                _url.forEach(element => {
+                    var url_bool=_url.indexOf(element);
+                    var select_vx="";
+                    switch(_select[url_bool]){
+                        case '0':select_vx="とてもいい";break;
+                        case '1':select_vx="いい";break;
+                        case '2':select_vx="わっるい";break;
+                        case '3':select_vx="とてもわっるい";break;
+                    }
+                    html_pre=`<span style='  
+                    box-sizing: border-box;
+                    white-space: nowrap;
+                    border-radius: 0.2em;
+                    padding: 0.12em 0.4em 0.14em;
+                    margin: 0 0.42em;
+                    text-align: center;
+                    color: #ffffff;
+                    font-size: 0.75em;
+                    font-weight: 700;
+                    line-height: 1;
+                    display: inline;
+                    white-space: nowrap;
+                    vertical-align: baseline;
+                    position: relative;
+                    top: -0.15em;
+                    background-color: #9bc268;'>評価:${select_vx}</span>`
+                    $(`a[href='${element}']`).prepend(html_pre);
+                    
+     
+                });
                 $('body').prepend(
                     `
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -293,6 +415,37 @@ chrome.storage.sync.get(['date'], function (value) {
                 }                if(document.getElementsByClassName('box22')){
                     $('.box22').remove();
                 }
+                let html_pre="";
+                _url.forEach(element => {
+                    var url_bool=_url.indexOf(element);
+                    var select_vx="";
+                    switch(_select[url_bool]){
+                        case '0':select_vx="とてもいい";break;
+                        case '1':select_vx="いい";break;
+                        case '2':select_vx="わっるい";break;
+                        case '3':select_vx="とてもわっるい";break;
+                    }
+                    html_pre=`<span style='  
+                    box-sizing: border-box;
+                    white-space: nowrap;
+                    border-radius: 0.2em;
+                    padding: 0.12em 0.4em 0.14em;
+                    margin: 0 0.42em;
+                    text-align: center;
+                    color: #ffffff;
+                    font-size: 0.75em;
+                    font-weight: 700;
+                    line-height: 1;
+                    display: inline;
+                    white-space: nowrap;
+                    vertical-align: baseline;
+                    position: relative;
+                    top: -0.15em;
+                    background-color: #9bc268;'>評価:${select_vx}</span>`
+                    $(`a[href='${element}']`).prepend(html_pre);
+                    
+     
+                });
                 $('body').prepend(
 `
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -343,6 +496,37 @@ URLを検索
                 }                if(document.getElementsByClassName('box22')){
                     $('.box22').remove();
                 }
+                let html_pre="";
+                _url.forEach(element => {
+                    var url_bool=_url.indexOf(element);
+                    var select_vx="";
+                    switch(_select[url_bool]){
+                        case '0':select_vx="とてもいい";break;
+                        case '1':select_vx="いい";break;
+                        case '2':select_vx="わっるい";break;
+                        case '3':select_vx="とてもわっるい";break;
+                    }
+                    html_pre=`<span style='  
+                    box-sizing: border-box;
+                    white-space: nowrap;
+                    border-radius: 0.2em;
+                    padding: 0.12em 0.4em 0.14em;
+                    margin: 0 0.42em;
+                    text-align: center;
+                    color: #ffffff;
+                    font-size: 0.75em;
+                    font-weight: 700;
+                    line-height: 1;
+                    display: inline;
+                    white-space: nowrap;
+                    vertical-align: baseline;
+                    position: relative;
+                    top: -0.15em;
+                    background-color: #9bc268;'>評価:${select_vx}</span>`
+                    $(`a[href='${element}']`).prepend(html_pre);
+                    
+     
+                });
                 $('body').prepend(
                     `
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -450,8 +634,37 @@ getqiita(dd);
           }
           else{
             i++;
-    
-          dd2+=`<p style="margin-bottom:5px;"><b>${i}.${escape_html(e.title)}</b>(<a href="${e.url}" target="_blank" style="font-size:12px;">${e.url}</a>)</p><hr style="border-width: 0; /* 平面の線に指定 */
+            let html_pre="";
+            _url.forEach(element => {
+                var url_bool=_url.indexOf(element);
+                var select_vx="";
+                switch(_select[url_bool]){
+                    case '0':select_vx="とてもいい";break;
+                    case '1':select_vx="いい";break;
+                    case '2':select_vx="わっるい";break;
+                    case '3':select_vx="とてもわっるい";break;
+                }
+                html_pre=(element==e.url)?`<span style='  
+                box-sizing: border-box;
+                white-space: nowrap;
+                border-radius: 0.2em;
+                padding: 0.12em 0.4em 0.14em;
+                margin: 0 0.42em;
+                text-align: center;
+                color: #ffffff;
+                font-size: 0.75em;
+                font-weight: 700;
+                line-height: 1;
+                display: inline;
+                white-space: nowrap;
+                vertical-align: baseline;
+                position: relative;
+                top: -0.15em;
+                background-color: #9bc268;'>評価:${select_vx}</span>`:"";
+                
+ 
+            });
+          dd2+=`<p style="margin-bottom:5px;"><b>${i}.${html_pre}${escape_html(e.title)}</b>(<a href="${e.url}" target="_blank" style="font-size:12px;">${e.url}</a>)</p><hr style="border-width: 0; /* 平面の線に指定 */
           height: 2px; 
           margin-bottom:5px;
           background:linear-gradient(to left,#5bb7ae 70%, #5bb7ae 30%);
