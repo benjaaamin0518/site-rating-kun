@@ -45,6 +45,9 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             }                if(document.getElementsByClassName('box22')){
                 $('.box22').remove();
             }
+            if(document.getElementsByClassName('site_evaluation')){
+                $('.site_evaluation').remove();
+            }
             let html_pre="";
             _url.forEach(element => {
                 var url_bool=_url.indexOf(element);
@@ -57,7 +60,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
                     case '2':select_vx="わっるい";break;
                     case '3':select_vx="とてもわっるい";break;
                 }
-                html_pre=`<span style='  
+                html_pre=`<span class='site_evaluation' style='  
                 box-sizing: border-box;
                 white-space: nowrap;
                 border-radius: 0.2em;
@@ -106,8 +109,12 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
         }                if(document.getElementsByClassName('box22')){
             $('.box22').remove();
         }
+        if(document.getElementsByClassName('site_evaluation')){
+            $('.site_evaluation').remove();
+        }
         let html_pre="";
         _url.forEach(element => {
+            if(element!=uuu){
             var url_bool=_url.indexOf(element);
             var urlStr = element;
             var result = (getRootRelative(urlStr)=="/"||(getRootRelative(urlStr)==""))?false:getRootRelative(urlStr);
@@ -118,7 +125,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
                 case '2':select_vx="わっるい";break;
                 case '3':select_vx="とてもわっるい";break;
             }
-            html_pre=`<span style='  
+            html_pre=`<span class='site_evaluation' style='  
             box-sizing: border-box;
             white-space: nowrap;
             border-radius: 0.2em;
@@ -137,28 +144,49 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             background-color: #9bc268;'>評価:${select_vx}</span>`;
             let bb=(result)?result:console.log(element);
             let han=($(`a[href='${result}']`).text().length)?$(`a[href='${result}']`).prepend(html_pre):$(`a[href='${element}']`).prepend(html_pre);    
+            }
         });
-
-        $('body').prepend(
-            `
+            var urlStr = uuu;
+            var result = (getRootRelative(urlStr)=="/"||(getRootRelative(urlStr)==""))?false:getRootRelative(urlStr);
+            html_pre=`<span class='site_evaluation' style='  
+            box-sizing: border-box;
+            white-space: nowrap;
+            border-radius: 0.2em;
+            padding: 0.12em 0.4em 0.14em;
+            margin: 0 0.42em;
+            text-align: center;
+            color: #ffffff;
+            font-size: 0.75em;
+            font-weight: 700;
+            line-height: 1;
+            display: inline;
+            white-space: nowrap;
+            vertical-align: baseline;
+            position: relative;
+            top: -0.15em;
+            background-color: #9bc268;'>評価:${vx}</span>`;
+            bb=(result)?result:console.log(uuu);
+            han=($(`a[href='${result}']`).text().length)?$(`a[href='${result}']`).prepend(html_pre):$(`a[href='${uuu}']`).prepend(html_pre);  
+            $('body').prepend(
+                `
+                
+                <center><div class="box22">
+                <p>このサイトの評価は<b>${vx}</b>です${year}
+                <a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  class="text-decoration-none" id="tw_ter">
+                URLを検索
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
+                </svg>
+                </a>
+                </p>
+                
+                </div>
             
-            <center><div class="box22">
-            <p>このサイトの評価は<b>${vx}</b>です${year}
-            <a href="https://twitter.com/search?q=url:${uuu}&src=typed_query&f=top" target="_blank"  class="text-decoration-none" id="tw_ter">
-            URLを検索
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
-            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path>
-            </svg>
-            </a>
-            </p>
+                </center>
+                
+                `
+                                ); 
             
-            </div>
-          
-            </center>
-            
-            `
-                            ); 
-        
     
         }                    
     } else {
@@ -184,18 +212,18 @@ async function useURLFunc() {
     await useURLFunc();
 })();
 
-chrome.storage.sync.get(['date'], function (value) {
+chrome.storage.local.get(['date'], function (value) {
     value=value.date||[];
     console.log(value);
     _date=value;
   });
-  chrome.storage.sync.get(['select'], function (value) {
+  chrome.storage.local.get(['select'], function (value) {
     value=value.select||[];
     console.log(value);
     _select=value;
 
    });
-       chrome.storage.sync.get(['url'], function (value) {
+       chrome.storage.local.get(['url'], function (value) {
     value=value.url||[];
     console.log(value);
     _url=value;
@@ -225,7 +253,7 @@ chrome.storage.sync.get(['date'], function (value) {
                         case '2':select_vx="わっるい";break;
                         case '3':select_vx="とてもわっるい";break;
                     }
-                    html_pre=`<span style='  
+                    html_pre=`<span class='site_evaluation' style='  
                     box-sizing: border-box;
                     white-space: nowrap;
                     border-radius: 0.2em;
@@ -306,7 +334,7 @@ URLを検索
                         case '2':select_vx="わっるい";break;
                         case '3':select_vx="とてもわっるい";break;
                     }
-                    html_pre=`<span style='  
+                    html_pre=`<span class='site_evaluation' style='  
                     box-sizing: border-box;
                     white-space: nowrap;
                     border-radius: 0.2em;
@@ -388,18 +416,18 @@ async function useURLFunc() {
     await useURLFunc();
 })();
 
-chrome.storage.sync.get(['date'], function (value) {
+chrome.storage.local.get(['date'], function (value) {
     value=value.date||[];
     console.log(value);
     _date=value;
   });
-  chrome.storage.sync.get(['select'], function (value) {
+  chrome.storage.local.get(['select'], function (value) {
     value=value.select||[];
     console.log(value);
     _select=value;
 
    });
-       chrome.storage.sync.get(['url'], function (value) {
+       chrome.storage.local.get(['url'], function (value) {
     value=value.url||[];
     console.log(value);
     _url=value;
@@ -434,7 +462,7 @@ chrome.storage.sync.get(['date'], function (value) {
                         case '2':select_vx="わっるい";break;
                         case '3':select_vx="とてもわっるい";break;
                     }
-                    html_pre=`<span style='  
+                    html_pre=`<span class='site_evaluation' style='  
                     box-sizing: border-box;
                     white-space: nowrap;
                     border-radius: 0.2em;
@@ -517,7 +545,7 @@ URLを検索
                         case '2':select_vx="わっるい";break;
                         case '3':select_vx="とてもわっるい";break;
                     }
-                    html_pre=`<span style='  
+                    html_pre=`<span class='site_evaluation' style='  
                     box-sizing: border-box;
                     white-space: nowrap;
                     border-radius: 0.2em;

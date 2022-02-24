@@ -25,24 +25,24 @@ let MM = dd.getMonth()+1;
     let _select;
 alert
  async function evo(){
-    chrome.storage.sync.get(['date'], function (value) {
+    chrome.storage.local.get(['date'], function (value) {
         value=value.date||[];
         console.log(value);
         _date=value;
       });
-      chrome.storage.sync.get(['select'], function (value) {
+      chrome.storage.local.get(['select'], function (value) {
         value=value.select||[];
         console.log(value);
         _select=value;
 
        });
-           chrome.storage.sync.get(['url'], function (value) {
+           chrome.storage.local.get(['url'], function (value) {
         value=value.url||[];
         console.log(value);
         _url=value;
         r_length=_url.length;
        });
-       chrome.storage.sync.get(['title'], function (value) {
+       chrome.storage.local.get(['title'], function (value) {
         value=value.title||[];
         console.log(value);
         _title=value;
@@ -135,24 +135,24 @@ ${title}
 
 
   evo();
-  chrome.storage.sync.get(['date'], function (value) {
+  chrome.storage.local.get(['date'], function (value) {
     value=value.date||[];
     console.log(value);
     _date=value;
   });
-  chrome.storage.sync.get(['select'], function (value) {
+  chrome.storage.local.get(['select'], function (value) {
     value=value.select||[];
     console.log(value);
     _select=value;
 
    });
-       chrome.storage.sync.get(['url'], function (value) {
+       chrome.storage.local.get(['url'], function (value) {
     value=value.url||[];
     console.log(value);
     _url=value;
     r_length=_url.length;
    });
-   chrome.storage.sync.get(['title'], function (value) {
+   chrome.storage.local.get(['title'], function (value) {
     value=value.title||[];
     console.log(value);
     _title=value;
@@ -196,13 +196,13 @@ console.log(_date);
 console.log(_url);
 console.log(_title);
 
-chrome.storage.sync.set({'select':_select} , function () {
+chrome.storage.local.set({'select':_select} , function () {
 });
-chrome.storage.sync.set({'date':_date} , function () {
+chrome.storage.local.set({'date':_date} , function () {
 });
-chrome.storage.sync.set({'url':_url} , function () {
+chrome.storage.local.set({'url':_url} , function () {
 });
-chrome.storage.sync.set({'title':_title} , function () {
+chrome.storage.local.set({'title':_title} , function () {
 });
 evo();
 
@@ -642,16 +642,16 @@ var fetchAsText = (file) => {
         console.log(in_url);
         console.log(in_title);
             let cv=0;
-        chrome.storage.sync.set({'select':in_select} , function () {
+        chrome.storage.local.set({'select':in_select} , function () {
         });
-        chrome.storage.sync.set({'date':in_date} , function () {
+        chrome.storage.local.set({'date':in_date} , function () {
         });
-      chrome.storage.sync.set({'url':in_url} , async function () {
+      chrome.storage.local.set({'url':in_url} , async function () {
           cv=1;
         });
-        chrome.storage.sync.set({'title':in_title} , function () {
+        chrome.storage.local.set({'title':in_title} , function () {
         });
-            chrome.storage.sync.get(['date'], function (value) {
+            chrome.storage.local.get(['date'], function (value) {
 
         value=value.date||[];
 
@@ -661,7 +661,7 @@ var fetchAsText = (file) => {
 
       });
 
-      chrome.storage.sync.get(['select'], function (value) {
+      chrome.storage.local.get(['select'], function (value) {
 
         value=value.select||[];
 
@@ -670,7 +670,7 @@ var fetchAsText = (file) => {
         _select=value;
 
        });
-           chrome.storage.sync.get(['url'], function (value) {
+           chrome.storage.local.get(['url'], function (value) {
 
         value=value.url||[];
 
@@ -681,7 +681,7 @@ var fetchAsText = (file) => {
 
        });
 // alert(_url)
-       chrome.storage.sync.get(['title'], function (value) {
+       chrome.storage.local.get(['title'], function (value) {
 
         value=value.title||[];
 
