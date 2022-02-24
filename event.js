@@ -62,23 +62,23 @@ chrome.runtime.onInstalled.addListener(() => {
     let _select;
     let _title;
     let r_length;
-    chrome.storage.sync.get(['date'], function (value) {
+    chrome.storage.local.get(['date'], function (value) {
         value=value.date||[];
         console.log(value);
         _date=value;
       });    
-      chrome.storage.sync.get(['title'], function (value) {
+      chrome.storage.local.get(['title'], function (value) {
         value=value.title||[];
         console.log(value);
         _title=value;
       });
-      chrome.storage.sync.get(['select'], function (value) {
+      chrome.storage.local.get(['select'], function (value) {
         value=value.select||[];
         console.log(value);
         _select=value;
     
        });
-           chrome.storage.sync.get(['url'], function (value) {
+           chrome.storage.local.get(['url'], function (value) {
         value=value.url||[];
         console.log(value);
         _url=value;
