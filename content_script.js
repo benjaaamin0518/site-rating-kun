@@ -48,6 +48,8 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             let html_pre="";
             _url.forEach(element => {
                 var url_bool=_url.indexOf(element);
+                var urlStr = element;
+                var result = (getRootRelative(urlStr)=="/"||(getRootRelative(urlStr)==""))?false:getRootRelative(urlStr);
                 var select_vx="";
                 switch(_select[url_bool]){
                     case '0':select_vx="とてもいい";break;
@@ -71,11 +73,11 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
                 vertical-align: baseline;
                 position: relative;
                 top: -0.15em;
-                background-color: #9bc268;'>評価:${select_vx}</span>`
-                $(`a[href='${element}']`).prepend(html_pre);
-                
- 
+                background-color: #9bc268;'>評価:${select_vx}</span>`;
+                let bb=(result)?result:console.log(element);
+                let han=($(`a[href='${result}']`).text().length)?$(`a[href='${result}']`).prepend(html_pre):$(`a[href='${element}']`).prepend(html_pre);    
             });
+
             $('body').prepend(
                 `
                 <center><div class="box23">
@@ -107,6 +109,8 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
         let html_pre="";
         _url.forEach(element => {
             var url_bool=_url.indexOf(element);
+            var urlStr = element;
+            var result = (getRootRelative(urlStr)=="/"||(getRootRelative(urlStr)==""))?false:getRootRelative(urlStr);
             var select_vx="";
             switch(_select[url_bool]){
                 case '0':select_vx="とてもいい";break;
@@ -130,11 +134,11 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             vertical-align: baseline;
             position: relative;
             top: -0.15em;
-            background-color: #9bc268;'>評価:${select_vx}</span>`
-            $(`a[href='${element}']`).prepend(html_pre);
-            
-
+            background-color: #9bc268;'>評価:${select_vx}</span>`;
+            let bb=(result)?result:console.log(element);
+            let han=($(`a[href='${result}']`).text().length)?$(`a[href='${result}']`).prepend(html_pre):$(`a[href='${element}']`).prepend(html_pre);    
         });
+
         $('body').prepend(
             `
             
@@ -212,6 +216,8 @@ chrome.storage.sync.get(['date'], function (value) {
                 let html_pre="";
                 _url.forEach(element => {
                     var url_bool=_url.indexOf(element);
+                    var urlStr = element;
+                    var result = (getRootRelative(urlStr)=="/"||(getRootRelative(urlStr)==""))?false:getRootRelative(urlStr);
                     var select_vx="";
                     switch(_select[url_bool]){
                         case '0':select_vx="とてもいい";break;
@@ -235,10 +241,9 @@ chrome.storage.sync.get(['date'], function (value) {
                     vertical-align: baseline;
                     position: relative;
                     top: -0.15em;
-                    background-color: #9bc268;'>評価:${select_vx}</span>`
-                    $(`a[href='${element}']`).prepend(html_pre);
-                    
-     
+                    background-color: #9bc268;'>評価:${select_vx}</span>`;
+                    let bb=(result)?result:console.log(element);
+                    let han=($(`a[href='${result}']`).text().length)?$(`a[href='${result}']`).prepend(html_pre):$(`a[href='${element}']`).prepend(html_pre);    
                 });
 
                 $('body').prepend(
@@ -292,6 +297,8 @@ URLを検索
                 let html_pre="";
                 _url.forEach(element => {
                     var url_bool=_url.indexOf(element);
+                    var urlStr = element;
+                    var result = (getRootRelative(urlStr)=="/"||(getRootRelative(urlStr)==""))?false:getRootRelative(urlStr);
                     var select_vx="";
                     switch(_select[url_bool]){
                         case '0':select_vx="とてもいい";break;
@@ -315,11 +322,11 @@ URLを検索
                     vertical-align: baseline;
                     position: relative;
                     top: -0.15em;
-                    background-color: #9bc268;'>評価:${select_vx}</span>`
-                    $(`a[href='${element}']`).prepend(html_pre);
-                    
-     
+                    background-color: #9bc268;'>評価:${select_vx}</span>`;
+                    let bb=(result)?result:console.log(element);
+                    let han=($(`a[href='${result}']`).text().length)?$(`a[href='${result}']`).prepend(html_pre):$(`a[href='${element}']`).prepend(html_pre);    
                 });
+
                 $('body').prepend(
                     `
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -418,6 +425,8 @@ chrome.storage.sync.get(['date'], function (value) {
                 let html_pre="";
                 _url.forEach(element => {
                     var url_bool=_url.indexOf(element);
+                    var urlStr = element;
+                    var result = (getRootRelative(urlStr)=="/"||(getRootRelative(urlStr)==""))?false:getRootRelative(urlStr);
                     var select_vx="";
                     switch(_select[url_bool]){
                         case '0':select_vx="とてもいい";break;
@@ -441,11 +450,11 @@ chrome.storage.sync.get(['date'], function (value) {
                     vertical-align: baseline;
                     position: relative;
                     top: -0.15em;
-                    background-color: #9bc268;'>評価:${select_vx}</span>`
-                    $(`a[href='${element}']`).prepend(html_pre);
-                    
-     
+                    background-color: #9bc268;'>評価:${select_vx}</span>`;
+                    let bb=(result)?result:console.log(element);
+                    let han=($(`a[href='${result}']`).text().length)?$(`a[href='${result}']`).prepend(html_pre):$(`a[href='${element}']`).prepend(html_pre);    
                 });
+
                 $('body').prepend(
 `
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -499,6 +508,8 @@ URLを検索
                 let html_pre="";
                 _url.forEach(element => {
                     var url_bool=_url.indexOf(element);
+                    var urlStr = element;
+                    var result = (getRootRelative(urlStr)=="/"||(getRootRelative(urlStr)==""))?false:getRootRelative(urlStr);
                     var select_vx="";
                     switch(_select[url_bool]){
                         case '0':select_vx="とてもいい";break;
@@ -522,10 +533,9 @@ URLを検索
                     vertical-align: baseline;
                     position: relative;
                     top: -0.15em;
-                    background-color: #9bc268;'>評価:${select_vx}</span>`
-                    $(`a[href='${element}']`).prepend(html_pre);
-                    
-     
+                    background-color: #9bc268;'>評価:${select_vx}</span>`;
+                    let bb=(result)?result:console.log(element);
+                    let han=($(`a[href='${result}']`).text().length)?$(`a[href='${result}']`).prepend(html_pre):$(`a[href='${element}']`).prepend(html_pre);    
                 });
                 $('body').prepend(
                     `
@@ -703,3 +713,13 @@ getqiita(dd);
           }[match]
         });
       }
+      var getRootRelative = function(path, excludeQueryString, excludeHashFragment) {
+        if (!path || !path.match(/(^\/|\/\/)/)) return '';
+    
+        var rPath = path.replace(/\\/g, '/').replace(/^[^/]*\/\/[^/]*/, '');
+    
+        if (excludeQueryString) rPath = rPath.replace(/\?([^#]+)?/, '');
+        if (excludeHashFragment) rPath = rPath.replace(/\#.*?$/, '');
+    
+        return rPath;
+    };
