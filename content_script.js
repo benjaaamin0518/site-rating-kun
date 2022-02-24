@@ -80,8 +80,10 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
                 let bb=(result)?result:console.log(element);
                 let han=($(`a[href='${result}']`).text().length)?$(`a[href='${result}']`).prepend(html_pre):$(`a[href='${element}']`).prepend(html_pre);    
             });
-
-            $('body').prepend(
+            if($('.qiita_link .site_evaluation').text()){
+                $('.qiita_link .site_evaluation').remove();
+                }
+                $('body').prepend(
                 `
                 <center><div class="box23">
                 <p>このサイトはまだ評価がありません
@@ -167,6 +169,9 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
             background-color: #9bc268;'>評価:${vx}</span>`;
             bb=(result)?result:console.log(uuu);
             han=($(`a[href='${result}']`).text().length)?$(`a[href='${result}']`).prepend(html_pre):$(`a[href='${uuu}']`).prepend(html_pre);  
+            if($('.qiita_link .site_evaluation').text()){
+                $('.qiita_link .site_evaluation').remove();
+                }
             $('body').prepend(
                 `
                 
@@ -273,7 +278,9 @@ chrome.storage.local.get(['date'], function (value) {
                     let bb=(result)?result:console.log(element);
                     let han=($(`a[href='${result}']`).text().length)?$(`a[href='${result}']`).prepend(html_pre):$(`a[href='${element}']`).prepend(html_pre);    
                 });
-
+                if($('.qiita_link .site_evaluation').text()){
+                $('.qiita_link .site_evaluation').remove();
+                }
                 $('body').prepend(
 `
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -354,8 +361,10 @@ URLを検索
                     let bb=(result)?result:console.log(element);
                     let han=($(`a[href='${result}']`).text().length)?$(`a[href='${result}']`).prepend(html_pre):$(`a[href='${element}']`).prepend(html_pre);    
                 });
-
-                $('body').prepend(
+                if($('.qiita_link .site_evaluation').text()){
+                    $('.qiita_link .site_evaluation').remove();
+                    }
+                                    $('body').prepend(
                     `
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
                     <center><div class="box22">
@@ -482,7 +491,9 @@ chrome.storage.local.get(['date'], function (value) {
                     let bb=(result)?result:console.log(element);
                     let han=($(`a[href='${result}']`).text().length)?$(`a[href='${result}']`).prepend(html_pre):$(`a[href='${element}']`).prepend(html_pre);    
                 });
-
+                if($('.qiita_link .site_evaluation').text()){
+                    $('.qiita_link .site_evaluation').remove();
+                    }
                 $('body').prepend(
 `
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -565,6 +576,9 @@ URLを検索
                     let bb=(result)?result:console.log(element);
                     let han=($(`a[href='${result}']`).text().length)?$(`a[href='${result}']`).prepend(html_pre):$(`a[href='${element}']`).prepend(html_pre);    
                 });
+                if($('.qiita_link .site_evaluation').text()){
+                    $('.qiita_link .site_evaluation').remove();
+                    }
                 $('body').prepend(
                     `
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -671,9 +685,12 @@ getqiita(dd);
             console.log(e.title);
           }
           else{
+            if(document.getElementsByClassName('site_evaluation_qiita')){
+                $('.site_evaluation_qiita').remove();
+            }
             i++;
             let html_pre="";
-            _url.forEach(element => {
+            _url.some(function(element){
                 var url_bool=_url.indexOf(element);
                 var select_vx="";
                 switch(_select[url_bool]){
@@ -682,7 +699,7 @@ getqiita(dd);
                     case '2':select_vx="わっるい";break;
                     case '3':select_vx="とてもわっるい";break;
                 }
-                html_pre=(element==e.url)?`<span style='  
+                html_pre=(element==e.url)?`<span class="site_evaluation_qiita" style='  
                 box-sizing: border-box;
                 white-space: nowrap;
                 border-radius: 0.2em;
@@ -699,10 +716,12 @@ getqiita(dd);
                 position: relative;
                 top: -0.15em;
                 background-color: #9bc268;'>評価:${select_vx}</span>`:"";
-                
+            if(html_pre){
+                return true;
+            };
  
             });
-          dd2+=`<p style="margin-bottom:5px;"><b>${i}.${html_pre}${escape_html(e.title)}</b>(<a href="${e.url}" target="_blank" style="font-size:12px;">${e.url}</a>)</p><hr style="border-width: 0; /* 平面の線に指定 */
+          dd2+=`<p style="margin-bottom:5px;"><b>${i}.${html_pre}${escape_html(e.title)}</b>(<a href="${e.url}" target="_blank" class="qiita_link" style="font-size:12px;">${e.url}</a>)</p><hr style="border-width: 0; /* 平面の線に指定 */
           height: 2px; 
           margin-bottom:5px;
           background:linear-gradient(to left,#5bb7ae 70%, #5bb7ae 30%);
@@ -712,7 +731,8 @@ getqiita(dd);
       $('body').append(
        `
        <center><div class="box22" style="width:75%">${dd2}</center></div>`
-                        );     },
+                        );                     
+                    },
     error: function(XMLHttpRequest, textStatus, errorThrown){
     //   alert('Error3 : ' + errorThrown);
     $('body').append(
