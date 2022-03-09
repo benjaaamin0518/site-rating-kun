@@ -1,5 +1,5 @@
 // event.js
-
+// 外部JSファイルの読み込み
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.greeting=='url') {
         let queryinfo = {'active': true, 'currentWindow': true};

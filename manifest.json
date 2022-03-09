@@ -1,10 +1,11 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "サイト評価するおくん(削除機能なし)",
     "description": "サイトの評価を保存しておくことによって過去のサイトの振り返りや、実際に訪れた時にサイトを参考にする判断基準にも使える機能です",
-    "version": "1.0",
-    "permissions": ["http://*/*", "https://*/*","tabs","storage", "activeTab","contextMenus","unlimitedStorage"],
-    "browser_action": {
+    "version": "1.5",
+    "permissions": ["tabs","storage", "activeTab","contextMenus","unlimitedStorage"],
+    "host_permissions":["http://*/*", "https://*/*"],
+    "action": {
       "default_icon": {
         "16":"icon16.png",
         "48":"icon48.png",
@@ -21,10 +22,7 @@
       }
   ],
   "background": {
-    "scripts": [
-      "jquery.js","event.js"
-    ],
-    "persistent": false
+    "service_worker": "event.js"
   }
   }
  
