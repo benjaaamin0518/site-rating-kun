@@ -1,109 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- semantic.css  -->
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
-<script src="jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
-<!-- semantic.js  -->
-<script src="ppap.js"></script>
-
-
-
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- semantic.css  -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+  <script src="jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+  <!-- semantic.js  -->
+  <script src="ppap.js"></script>
+  <title>Document</title>
 </head>
 <body>
-<div class="ui message" id="message" style="display:none">
-  <div class="header">
-  変更中です
+  <div class="ui message" id="message" style="display:none">
+    <div class="header"> 変更中です </div>
+    <p>しばらくお待ちください。</p>
   </div>
-  <p>しばらくお待ちください。</p>
-</div>
-<div class="ui success message" id="success_message" style="display:none">
-  <div class="header">
-  変更が無事完了しました
+  <div class="ui success message" id="success_message" style="display:none">
+    <div class="header"> 変更が無事完了しました </div>
+    <p>評価が変更されました</p>
   </div>
-  <p>評価が変更されました</p>
-</div>
-    <div id="holi" class="ui divided selection list" style="position:relative;top:-10px;">
-
-
-      </div>
-      <form name="form1">
-      <div class="ui form">
-        <div class="grouped fields">
-          <label>このサイトの評価は？</label>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="example1" value="0">
-              <label>とてもいい</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="example1" value="1">
-              <label>いい</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="example1"  value="2">
-              <label>わっるい</label>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui radio checkbox">
-              <input type="radio" name="example1"  value="3">
-              <label>とてもわっるい</label>
-            </div>
-          </div>
+  <div id="holi" class="ui divided selection list" style="position:relative;top:-10px;"> </div>
+  <form name="form1">
+    <div class="ui form">
+      <div class="grouped fields"> <label>このサイトの評価は？</label>
+        <div class="field">
+          <div class="ui radio checkbox"> <input type="radio" name="example1" value="0"> <label>とてもいい</label> </div>
         </div>
-      </div>  
-    </form>
-      <button class="ui primary button compact" id="hora">
+        <div class="field">
+          <div class="ui radio checkbox"> <input type="radio" name="example1" value="1"> <label>いい</label> </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox"> <input type="radio" name="example1" value="2"> <label>わっるい</label> </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox"> <input type="radio" name="example1" value="3"> <label>とてもわっるい</label> </div>
+        </div>
+      </div>
+    </div>
+  </form> <button class="ui primary button compact" id="hora">
         Save
       </button>
-      <div class="ui message">
-        <div class="header">
-         CSVインポート・エクスポート
-          </div>
-          <div class="ui middle aligned center aligned grid containered"  style="margin-top:15px;">
-            <!-- <div class="ui fluid segment"> -->
-              <div class="ui buttons">
-<!--           
+  <div class="ui message">
+    <div class="header"> CSVインポート・エクスポート </div>
+    <div class="ui middle aligned center aligned grid containered" style="margin-top:15px;">
+      <!-- <div class="ui fluid segment"> -->
+      <div class="ui buttons">
+        <!--           
             <label for="embedpollfileinput" class="ui button compact" style="position:relative;">
            Inport
             </label>
             <button class="ui button compact" id="">
               Export
-            </button> -->
-            <input type="file"  class="inputfile"style="display:none" id="embedpollfileinput" />
-
-              <label for="embedpollfileinput" class="ui primary button " id="inpo">Inport</label>
-              <div class="or"></div>
-              <button class="ui button compact" id="csvdwn">Export</button>
-            </div>
-            </div>
-            
-          <!-- </div> --><br>
-                  <div class="header" style="margin-top:10px;">
-        他のサイトでの評価
-        </div>
-        <ul class="list">
-          <li>表示がおかしい場合は再度ページの読み込みを行ってください。</li>
-          <li>評価は実際のサイトに訪れないと変更できません</li>
-        </ul>
-        </div>
-      <div class="ui search">
-        <input class="prompt" id="search" type="text" placeholder="例:いい/キーワード" style="width:100%">
-        <div class="results"></div>
-      </div>
-      <div id="hono" class="ui divided selection list">
-
-
+            </button> --><input type="file" class="inputfile" style="display:none" id="embedpollfileinput" /> <label for="embedpollfileinput" class="ui primary button " id="inpo">Inport</label>
+        <div class="or"></div> <button class="ui button compact" id="csvdwn">Export</button> </div>
     </div>
-    </body>
+    <!-- </div> --><br>
+    <div class="header" style="margin-top:10px;"> 他のサイトでの評価 </div>
+    <ul class="list">
+      <li>表示がおかしい場合は再度ページの読み込みを行ってください。</li>
+      <li>評価は実際のサイトに訪れないと変更できません</li>
+    </ul>
+  </div>
+  <div class="ui search"> <input class="prompt" id="search" type="text" placeholder="例:いい/キーワード" style="width:100%">
+    <div class="results"></div>
+  </div>
+  <div id="hono" class="ui divided selection list"> </div>
+</body>
 </html>
