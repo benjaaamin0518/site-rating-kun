@@ -1,3 +1,17 @@
+/**
+ *   役割:Browser_Action(Chromeを起動している間裏で動き続けているスクリプト、他のJSよりメッセージを受け取ったり他へ送ったりする)
+ * 　機能:・クリップボードにコピーする内容を整形する(content_scriptのruntimeメッセージに送信する)
+ *      　・ツイートする内容を整形する(content_scriptのruntimeメッセージに送信する)
+ *      　・ChromeAPIのstorageを使って値を配列で取得している。(値を配列でstorageに入れたりもしている)
+ *    　  ・上記の配列の値を用いてエレメントを生成している。
+ *    　  ・エレメントを検索かけれるようにしている
+ *    　  ・Saveボタンを押すと配列を作成し、StorageAPI似て更新を書ける
+ *    　  ・配列を用いてCSVを作成し指定するディレクトリに保存させる
+ *    　  ・指定したCSVより配列を作成しStorageAPIにてChromeに格納する。
+ *  作成者:benjaaamin0518
+ * 
+ */
+
 $(function () {
     let _date;
     let _url;

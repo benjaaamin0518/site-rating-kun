@@ -1,4 +1,13 @@
-// event.js
+/**
+ *   役割:event(Chromeを起動している間裏で動き続けているスクリプト、他のJSよりメッセージを受け取ったり他へ送ったりする)
+ * 　機能:・クリップボードにコピーする内容を整形する(content_scriptのruntimeメッセージに送信する)
+ *      　・ツイートする内容を整形する(content_scriptのruntimeメッセージに送信する)
+ *      　・右クリックで表示するメニューの設定
+ *    　  ・runtimeメッセージを受け取り、受け取ったオブジェクトのリンクを新規タブで開く。
+ *  作成者:benjaaamin0518
+ * 
+ */
+
 // 外部JSファイルの読み込み
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.greeting == 'url') {
