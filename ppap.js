@@ -1,5 +1,5 @@
 /**
- *   役割:Browser_Action(Chromeを起動している間裏で動き続けているスクリプト、他のJSよりメッセージを受け取ったり他へ送ったりする)
+ *   役割:Browser_Action(拡張機能のポップアップ表示がなされた画面に対する処理を行う)
  * 　機能:・クリップボードにコピーする内容を整形する(content_scriptのruntimeメッセージに送信する)
  *      　・ツイートする内容を整形する(content_scriptのruntimeメッセージに送信する)
  *      　・ChromeAPIのstorageを使って値を配列で取得している。(値を配列でstorageに入れたりもしている)
