@@ -13,29 +13,52 @@
  */
 
 $(function () {
-    let _date;
-    let _url;
-    let n = 0;
-    let _url2;
-    let bool
-    let r_length;
-    let uuu;
-    let title;
-    let _title;
-    let in_select = [];
-    let in_title = [];
-    let in_url = [];
-    let in_date = [];
-    let flg = 0;
-    //日付オブジェクトを作成する
-    let dd = new Date();
-    //「年」を取得する
-    let YYYY = dd.getFullYear();
-    //「月」を取得する
-    let MM = dd.getMonth() + 1;
-    //「日」を取得する
-    let _select;
-    alert
+    class SiteRating{
+      constructor(){
+        let _date;
+        let _url;
+        let n = 0;
+        let _url2;
+        let bool
+        let r_length;
+        let uuu;
+        let title;
+        let _title;
+        let in_select = [];
+        let in_title = [];
+        let in_url = [];
+        let in_date = [];
+        let flg = 0;
+        //日付オブジェクトを作成する
+        let dd = new Date();
+        //「年」を取得する
+        let YYYY = dd.getFullYear();
+        //「月」を取得する
+        let MM = dd.getMonth() + 1;
+        //「日」を取得する
+        let _select;
+      }
+      static get date(){
+        return this._date;
+      }
+      static set date(value){
+        this._date=value;
+      }
+      static get url(){
+        return this._url;
+      }
+      static set url(value){
+        this._url=value;
+      }
+      get _n(){
+        return this.n;
+      }
+      set _n(value){
+        this.n=value;
+      }
+
+
+    }
     async function evo() {
       chrome.storage.local.get(['date'], function (value) {
         value = value.date || [];
