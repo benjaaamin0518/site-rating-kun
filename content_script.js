@@ -421,7 +421,7 @@ URLを検索
 }
 var href = location.href;
 var observer = new MutationObserver(function (mutations) {
-  if (href !== location.href) {
+  if (href !== location.href || href==location.href) {
     let _date;
     let _url;
     let _select;
