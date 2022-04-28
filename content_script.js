@@ -420,10 +420,9 @@ URLを検索
   } else {}
 }
 var href = location.href;
-var flag_ele=1;
-var observer = new MutationObserver(function (mutations) {
-  if (href !== location.href && flag_ele) {
-    flag_ele=0;
+var flag_ele=0;
+var observer = new MutationObserver( function (mutations) {
+  if (href !== location.href || flag_ele) {
     let _date;
     let _url;
     let _select;
@@ -639,8 +638,9 @@ var observer = new MutationObserver(function (mutations) {
                     </center>
                     
                     `);
-                    flag_ele=1;
         }
+        flag_ele=1;
+
       } else {}
     }
     href = location.href;
