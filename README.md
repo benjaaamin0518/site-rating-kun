@@ -28,20 +28,25 @@ Chromeの拡張機能→デベロッパーモードをオンにした状態で�
 
 #画面
 
-・ポップアップ表示画面
-![image](https://user-images.githubusercontent.com/98086140/183587843-07eeca9b-e2ec-4fc7-bf90-00f1992b078c.png)
-　
-・検索時
-![image](https://user-images.githubusercontent.com/98086140/183588019-e87de594-3f44-49c8-824e-a8f7d5131c84.png)
+| ・ポップアップ表示画面 |
+|:------------:|
+|     ![image](https://user-images.githubusercontent.com/98086140/183587843-07eeca9b-e2ec-4fc7-bf90-00f1992b078c.png)    |
 
-・Qiitaの関連記事表示画面
-![image](https://user-images.githubusercontent.com/98086140/183588133-70d6f752-a6be-426a-92de-dfdb8a09cffc.png)
+|    ・検索時    |
+|:------------:|
+|     ![image](https://user-images.githubusercontent.com/98086140/183588019-e87de594-3f44-49c8-824e-a8f7d5131c84.png)     |
 
-・ヘッダーの表示
-![image](https://user-images.githubusercontent.com/98086140/183588224-92214423-6ebe-43d6-9fcb-6c5264122525.png)
+|      ・Qiitaの関連記事表示画面      |
+|:------------:|
+|    ![image](https://user-images.githubusercontent.com/98086140/183588133-70d6f752-a6be-426a-92de-dfdb8a09cffc.png)    |
 
-・評価表示時
-![image](https://user-images.githubusercontent.com/98086140/183588675-fbc9ca10-0a71-48b3-a05a-571cdad0120b.png)
+|   ・ヘッダーの表示    |
+|:------------:|
+|![image](https://user-images.githubusercontent.com/98086140/183588224-92214423-6ebe-43d6-9fcb-6c5264122525.png)    |
+
+|   ・評価表示時    |
+|:------------:|
+|   ![image](https://user-images.githubusercontent.com/98086140/183588675-fbc9ca10-0a71-48b3-a05a-571cdad0120b.png)   |
 
 # Note
  
