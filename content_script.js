@@ -34,21 +34,21 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
   } else if (msg.val) {
     let vx = "";
     switch (msg.val) {
-    case '0':
-      vx = "とてもいい";
-      break;
-    case '1':
-      vx = "いい";
-      break;
-    case '2':
-      vx = "わっるい";
-      break;
-    case '3':
-      vx = "とてもわっるい";
-      break;
-    case 4:
-      vx = 4;
-      break;
+      case '0':
+        vx = "とてもいい";
+        break;
+      case '1':
+        vx = "いい";
+        break;
+      case '2':
+        vx = "わっるい";
+        break;
+      case '3':
+        vx = "とてもわっるい";
+        break;
+      case 4:
+        vx = 4;
+        break;
     }
     if (vx == 4) {
       if (document.getElementsByClassName('box23')) {
@@ -67,18 +67,18 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
         var result = (getRootRelative(urlStr) == "/" || (getRootRelative(urlStr) == "")) ? false : getRootRelative(urlStr);
         var select_vx = "";
         switch (_select[url_bool]) {
-        case '0':
-          select_vx = "とてもいい";
-          break;
-        case '1':
-          select_vx = "いい";
-          break;
-        case '2':
-          select_vx = "わっるい";
-          break;
-        case '3':
-          select_vx = "とてもわっるい";
-          break;
+          case '0':
+            select_vx = "とてもいい";
+            break;
+          case '1':
+            select_vx = "いい";
+            break;
+          case '2':
+            select_vx = "わっるい";
+            break;
+          case '3':
+            select_vx = "とてもわっるい";
+            break;
         }
         html_pre = `<span class='site_evaluation' style='  
                 box-sizing: border-box;
@@ -139,18 +139,18 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
           var result = (getRootRelative(urlStr) == "/" || (getRootRelative(urlStr) == "")) ? false : getRootRelative(urlStr);
           var select_vx = "";
           switch (_select[url_bool]) {
-          case '0':
-            select_vx = "とてもいい";
-            break;
-          case '1':
-            select_vx = "いい";
-            break;
-          case '2':
-            select_vx = "わっるい";
-            break;
-          case '3':
-            select_vx = "とてもわっるい";
-            break;
+            case '0':
+              select_vx = "とてもいい";
+              break;
+            case '1':
+              select_vx = "いい";
+              break;
+            case '2':
+              select_vx = "わっるい";
+              break;
+            case '3':
+              select_vx = "とてもわっるい";
+              break;
           }
           html_pre = `<span class='site_evaluation' style='  
             box-sizing: border-box;
@@ -234,7 +234,7 @@ async function useURLFunc() {
   uuu = url[0];
   title = url[1]
 }
-(async() => {
+(async () => {
   await useURLFunc();
 })();
 chrome.storage.local.get(['date'], function (value) {
@@ -267,18 +267,18 @@ function findTargetElement2() {
         var result = (getRootRelative(urlStr) == "/" || (getRootRelative(urlStr) == "")) ? false : getRootRelative(urlStr);
         var select_vx = "";
         switch (_select[url_bool]) {
-        case '0':
-          select_vx = "とてもいい";
-          break;
-        case '1':
-          select_vx = "いい";
-          break;
-        case '2':
-          select_vx = "わっるい";
-          break;
-        case '3':
-          select_vx = "とてもわっるい";
-          break;
+          case '0':
+            select_vx = "とてもいい";
+            break;
+          case '1':
+            select_vx = "いい";
+            break;
+          case '2':
+            select_vx = "わっるい";
+            break;
+          case '3':
+            select_vx = "とてもわっるい";
+            break;
         }
         html_pre = `<span class='site_evaluation' style='  
                     box-sizing: border-box;
@@ -321,18 +321,18 @@ URLを検索
     } else {
       let vx = "";
       switch (_select[bool]) {
-      case '0':
-        vx = "とてもいい";
-        break;
-      case '1':
-        vx = "いい";
-        break;
-      case '2':
-        vx = "わっるい";
-        break;
-      case '3':
-        vx = "とてもわっるい";
-        break;
+        case '0':
+          vx = "とてもいい";
+          break;
+        case '1':
+          vx = "いい";
+          break;
+        case '2':
+          vx = "わっるい";
+          break;
+        case '3':
+          vx = "とてもわっるい";
+          break;
       }
       //日付オブジェクトを作成する
       let dd = new Date();
@@ -363,18 +363,18 @@ URLを検索
         var result = (getRootRelative(urlStr) == "/" || (getRootRelative(urlStr) == "")) ? false : getRootRelative(urlStr);
         var select_vx = "";
         switch (_select[url_bool]) {
-        case '0':
-          select_vx = "とてもいい";
-          break;
-        case '1':
-          select_vx = "いい";
-          break;
-        case '2':
-          select_vx = "わっるい";
-          break;
-        case '3':
-          select_vx = "とてもわっるい";
-          break;
+          case '0':
+            select_vx = "とてもいい";
+            break;
+          case '1':
+            select_vx = "いい";
+            break;
+          case '2':
+            select_vx = "わっるい";
+            break;
+          case '3':
+            select_vx = "とてもわっるい";
+            break;
         }
         html_pre = `<span class='site_evaluation' style='  
                     box-sizing: border-box;
@@ -417,52 +417,90 @@ URLを検索
                     
                     `);
     }
-  } else {}
+  } else { }
 }
 var href = location.href;
-var observer = new MutationObserver(function (mutations) {
-  if (href !== location.href) {
-    let _date;
-    let _url;
-    let _select;
-    let r_length;
+let obsbool = false;
+let copy;
+let test = () => {
+  if (_url) {
+    var bool = false;
+    _url.forEach(element => {
+      var urlStr = element;
+      var result = (getRootRelative(urlStr) == "/" || (getRootRelative(urlStr) == "")) ? false : getRootRelative(urlStr);
+      if ($(`a[href='${result}']`).text().length) { bool = true }
+    })
+    return bool;
+  } else {
+    return false;
+  }
+};
+let obs = (mutations) => {
+  return new Promise((resolve, reject) => {
+    mutations.forEach(e => {
+      e.addedNodes.forEach(ele => {
+        copy = ele.firstChild;
+        if (($(copy).attr('class') === "box23") || $(copy).attr('class') === "box22" || $(copy).attr('class') === "site_evaluation") { resolve(false) }
+      })
+    });
+    resolve(obsbool);
+  })
+};
+var observer = new MutationObserver(async function (mutations) {
+  // (mutations.addedNodes == "div.box23") ? console.log("おったわ") : "";
+  // let added = mutations.push(e => { return e });
+  // // console.log(added.MutationRecord.addedNodes);
+  // console.table(added);
+  obsbool = true;
+  obsbool = await obs(mutations);
+  obsbool = (obsbool) ? test() : false;
+  console.log(obsbool);
+  if (obsbool) {
+    if (href !== location.href) {
+      let _date;
+      let _url;
+      let _select;
+      let r_length;
+    }
     kai = 0;
     // alert(`updated:`);
     // content_script.js
-    async function useURLFunc() {
-      let sendMsgFunc = () => {
-        return new Promise(resolve => {
-          chrome.runtime.sendMessage({
-            greeting: 'url'
-          }, response => {
-            resolve([response.farewell, response.title]);
+    if (href !== location.href) {
+      async function useURLFunc() {
+        let sendMsgFunc = () => {
+          return new Promise(resolve => {
+            chrome.runtime.sendMessage({
+              greeting: 'url'
+            }, response => {
+              resolve([response.farewell, response.title]);
+            });
           });
-        });
-      };
-      let url = await sendMsgFunc();
-      uuu = url[0];
-      title = url[1]
+        };
+        let url = await sendMsgFunc();
+        uuu = url[0];
+        title = url[1]
+      }
+      (async () => {
+        await useURLFunc();
+      })();
+      chrome.storage.local.get(['date'], function (value) {
+        value = value.date || [];
+        console.log(value);
+        _date = value;
+      });
+      chrome.storage.local.get(['select'], function (value) {
+        value = value.select || [];
+        console.log(value);
+        _select = value;
+      });
+      chrome.storage.local.get(['url'], function (value) {
+        value = value.url || [];
+        console.log(value);
+        _url = value;
+        r_length = _url.length;
+      });
     }
-    (async() => {
-      await useURLFunc();
-    })();
-    chrome.storage.local.get(['date'], function (value) {
-      value = value.date || [];
-      console.log(value);
-      _date = value;
-    });
-    chrome.storage.local.get(['select'], function (value) {
-      value = value.select || [];
-      console.log(value);
-      _select = value;
-    });
-    chrome.storage.local.get(['url'], function (value) {
-      value = value.url || [];
-      console.log(value);
-      _url = value;
-      r_length = _url.length;
-    });
-    let set_interval_id2 = setInterval(findTargetElement2, 300);
+    let set_interval_id2 = setInterval(findTargetElement2, 50);
 
     function findTargetElement2() {
       if (r_length !== 'undefined') {
@@ -475,6 +513,9 @@ var observer = new MutationObserver(function (mutations) {
           if (document.getElementsByClassName('box22')) {
             $('.box22').remove();
           }
+          if (document.getElementsByClassName('site_evaluation')) {
+            $('.site_evaluation').remove();
+          }
           let html_pre = "";
           _url.forEach(element => {
             var url_bool = _url.indexOf(element);
@@ -482,18 +523,18 @@ var observer = new MutationObserver(function (mutations) {
             var result = (getRootRelative(urlStr) == "/" || (getRootRelative(urlStr) == "")) ? false : getRootRelative(urlStr);
             var select_vx = "";
             switch (_select[url_bool]) {
-            case '0':
-              select_vx = "とてもいい";
-              break;
-            case '1':
-              select_vx = "いい";
-              break;
-            case '2':
-              select_vx = "わっるい";
-              break;
-            case '3':
-              select_vx = "とてもわっるい";
-              break;
+              case '0':
+                select_vx = "とてもいい";
+                break;
+              case '1':
+                select_vx = "いい";
+                break;
+              case '2':
+                select_vx = "わっるい";
+                break;
+              case '3':
+                select_vx = "とてもわっるい";
+                break;
             }
             html_pre = `<span class='site_evaluation' style='  
                     box-sizing: border-box;
@@ -536,18 +577,18 @@ var observer = new MutationObserver(function (mutations) {
         } else {
           let vx = "";
           switch (_select[bool]) {
-          case '0':
-            vx = "とてもいい";
-            break;
-          case '1':
-            vx = "いい";
-            break;
-          case '2':
-            vx = "わっるい";
-            break;
-          case '3':
-            vx = "とてもわっるい";
-            break;
+            case '0':
+              vx = "とてもいい";
+              break;
+            case '1':
+              vx = "いい";
+              break;
+            case '2':
+              vx = "わっるい";
+              break;
+            case '3':
+              vx = "とてもわっるい";
+              break;
           }
           //日付オブジェクトを作成する
           let dd = new Date();
@@ -574,6 +615,9 @@ var observer = new MutationObserver(function (mutations) {
           if (document.getElementsByClassName('box22')) {
             $('.box22').remove();
           }
+          if (document.getElementsByClassName('site_evaluation')) {
+            $('.site_evaluation').remove();
+          }
           let html_pre = "";
           _url.forEach(element => {
             var url_bool = _url.indexOf(element);
@@ -581,18 +625,18 @@ var observer = new MutationObserver(function (mutations) {
             var result = (getRootRelative(urlStr) == "/" || (getRootRelative(urlStr) == "")) ? false : getRootRelative(urlStr);
             var select_vx = "";
             switch (_select[url_bool]) {
-            case '0':
-              select_vx = "とてもいい";
-              break;
-            case '1':
-              select_vx = "いい";
-              break;
-            case '2':
-              select_vx = "わっるい";
-              break;
-            case '3':
-              select_vx = "とてもわっるい";
-              break;
+              case '0':
+                select_vx = "とてもいい";
+                break;
+              case '1':
+                select_vx = "いい";
+                break;
+              case '2':
+                select_vx = "わっるい";
+                break;
+              case '3':
+                select_vx = "とてもわっるい";
+                break;
             }
             html_pre = `<span class='site_evaluation' style='  
                     box-sizing: border-box;
@@ -638,7 +682,7 @@ var observer = new MutationObserver(function (mutations) {
                     
                     `);
         }
-      } else {}
+      } else { }
     }
     href = location.href;
   }
@@ -668,12 +712,12 @@ window.addEventListener('scroll', () => {
       let ba = ab.test(e);
       if (r.length == i && (e.length > 1 || ba)) {
         dd += `tag:${encodeURIComponent(e)}+stocks:>=100`;
-      } else if (e == "") {} else if (e.length > 1 || ba) {
+      } else if (e == "") { } else if (e.length > 1 || ba) {
         dd += `tag:${encodeURIComponent(e)}+stocks:>=100 OR `;
       }
     });
     getqiita(dd);
-  } else {}
+  } else { }
 });
 
 function getqiita(r) {
@@ -709,18 +753,18 @@ function getqiita(r) {
             var url_bool = _url.indexOf(element);
             var select_vx = "";
             switch (_select[url_bool]) {
-            case '0':
-              select_vx = "とてもいい";
-              break;
-            case '1':
-              select_vx = "いい";
-              break;
-            case '2':
-              select_vx = "わっるい";
-              break;
-            case '3':
-              select_vx = "とてもわっるい";
-              break;
+              case '0':
+                select_vx = "とてもいい";
+                break;
+              case '1':
+                select_vx = "いい";
+                break;
+              case '2':
+                select_vx = "わっるい";
+                break;
+              case '3':
+                select_vx = "とてもわっるい";
+                break;
             }
             html_pre = (element == e.url) ? `<span class="site_evaluation_qiita" style='  
                 box-sizing: border-box;

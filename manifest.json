@@ -1,28 +1,43 @@
 {
-    "manifest_version": 3,
-    "name": "サイト評価するおくん(削除機能なし)",
-    "description": "サイトの評価を保存しておくことによって過去のサイトの振り返りや、実際に訪れた時にサイトを参考にする判断基準にも使える機能です",
-    "version": "1.5",
-    "permissions": ["tabs","storage", "activeTab","contextMenus","unlimitedStorage"],
-    "host_permissions":["http://*/*", "https://*/*"],
-    "action": {
-      "default_icon": {
-        "16":"icon16.png",
-        "48":"icon48.png",
-        "128":"icon128.png"
-      },
-      "default_popup": "popup.html"
+  "manifest_version": 3,
+  "name": "サイト評価するおくん(削除機能なし)",
+  "description": "サイトの評価を保存しておくことによって過去のサイトの振り返りや、実際に訪れた時にサイトを参考にする判断基準にも使える機能です",
+  "version": "2.0",
+  "permissions": [
+    "tabs",
+    "storage",
+    "activeTab",
+    "contextMenus",
+    "unlimitedStorage"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
     },
-    "content_scripts": [
-      {
-          "matches": ["<all_urls>"],
-          "js": ["jquery.js","content_script.js"], 
-          "css":["bool.scss"],
-          "run_at": "document_end"
-      }
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "jquery.js",
+        "content_script.js"
+      ],
+      "css": [
+        "bool.scss"
+      ],
+      "run_at": "document_end"
+    }
   ],
   "background": {
     "service_worker": "event.js"
   }
-  }
- 
+}
