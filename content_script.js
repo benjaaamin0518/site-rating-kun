@@ -9,7 +9,7 @@
  *  作成者:benjaaamin0518
  * 
  */
-
+let count = 0;
 let _date;
 let _url;
 let uuu;
@@ -456,6 +456,7 @@ var observer = new MutationObserver(async function (mutations) {
   obsbool = (obsbool) ? test() : false;
   console.log(obsbool);
   if (obsbool) {
+    count++;
     if (href !== location.href) {
       let _date;
       let _url;
@@ -716,7 +717,10 @@ window.addEventListener('scroll', () => {
         dd += `tag:${encodeURIComponent(e)}+stocks:>=100 OR `;
       }
     });
-    getqiita(dd);
+    if (href !== location.href || count == 0) {
+
+      getqiita(dd);
+    }
   } else { }
 });
 
