@@ -16,11 +16,11 @@
   ],
   "action": {
     "default_icon": {
-      "16": "icon16.png",
-      "48": "icon48.png",
-      "128": "icon128.png"
+      "16": "src/img/icon16.png",
+      "48": "src/img/icon48.png",
+      "128": "src/img/icon128.png"
     },
-    "default_popup": "popup.html"
+    "default_popup": "src/html/popup.html"
   },
   "content_scripts": [
     {
@@ -28,16 +28,16 @@
         "<all_urls>"
       ],
       "js": [
-        "jquery.js",
-        "content_script.js"
+        "src/js/jquery.js",
+        "src/js/contentScript.js"
       ],
       "css": [
-        "bool.scss"
+        "src/css/bool.scss"
       ],
       "run_at": "document_end"
     }
   ],
   "background": {
-    "service_worker": "event.js"
+    "service_worker": "src/js/event.js"
   }
 }
