@@ -947,6 +947,7 @@ const bodyHeight = document.body.clientHeight // bodyの高さを取得
 const windowHeight = window.innerHeight // windowの高さを取得
 const bottomPoint = bodyHeight - windowHeight // ページ最下部までスクロールしたかを判定するための位置を計算
 window.addEventListener('scroll', () => {
+
   obsbool = true;
 
   observer.observe(document, {
@@ -975,7 +976,9 @@ window.addEventListener('scroll', () => {
       }
     });
     if (href !== location.href || count == 0) {
-
+      if (document.getElementsByClassName('box22')) {
+        $('.box22').remove();
+      }
       getqiita(dd);
     }
   } else { }
