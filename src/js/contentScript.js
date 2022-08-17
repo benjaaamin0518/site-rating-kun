@@ -253,7 +253,7 @@ chrome.storage.local.get(['url'], function (value) {
   _url = value;
   r_length = _url.length;
 });
-let set_interval_id2 = setInterval(findTargetElement2, 300);
+let set_interval_id2 = setInterval(findTargetElement2, 1);
 
 function findTargetElement2() {
   if (r_length !== 'undefined') {
@@ -509,7 +509,7 @@ var observer = new MutationObserver(async function (mutations) {
         r_length = _url.length;
       });
     }
-    let set_interval_id2 = setInterval(findTargetElement2, 50);
+    let set_interval_id2 = setInterval(findTargetElement2, 1);
 
     function findTargetElement2() {
       if (r_length !== 'undefined') {
